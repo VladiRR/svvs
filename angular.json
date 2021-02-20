@@ -88,7 +88,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "frontend-client:build"
+            "browserTarget": "frontend-client:build",
+            "port": 4200
           },
           "configurations": {
             "production": {
@@ -143,6 +144,121 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/frontend/client-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "frontend-admin": {
+      "projectType": "application",
+      "root": "apps/frontend/admin",
+      "sourceRoot": "apps/frontend/admin/src",
+      "prefix": "svvs",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/frontend/admin",
+            "index": "apps/frontend/admin/src/index.html",
+            "main": "apps/frontend/admin/src/main.ts",
+            "polyfills": "apps/frontend/admin/src/polyfills.ts",
+            "tsConfig": "apps/frontend/admin/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/frontend/admin/src/favicon.ico",
+              "apps/frontend/admin/src/assets"
+            ],
+            "styles": ["apps/frontend/admin/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/frontend/admin/src/environments/environment.ts",
+                  "with": "apps/frontend/admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "frontend-admin:build",
+            "port": 4201
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "frontend-admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "frontend-admin:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/frontend/admin/src/**/*.ts",
+              "apps/frontend/admin/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/frontend/admin"],
+          "options": {
+            "jestConfig": "apps/frontend/admin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "frontend/admin-e2e": {
+      "root": "apps/frontend/admin-e2e",
+      "sourceRoot": "apps/frontend/admin-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/frontend/admin-e2e/cypress.json",
+            "tsConfig": "apps/frontend/admin-e2e/tsconfig.e2e.json",
+            "devServerTarget": "frontend-admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "frontend-admin:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/frontend/admin-e2e/**/*.{js,ts}"]
           }
         }
       }
