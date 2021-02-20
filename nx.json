@@ -16,7 +16,7 @@
     }
   },
   "projects": {
-    "frontend-client": { "tags": [] },
+    "frontend-client": { "tags": ["scope:frontend-client"] },
     "frontend/client-e2e": {
       "tags": [],
       "implicitDependencies": ["frontend-client"]
