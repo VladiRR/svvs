@@ -28,7 +28,9 @@
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
-      "rules": {}
+      "rules": {
+        "no-undef": "off"
+      }
     }
   ]
 }
