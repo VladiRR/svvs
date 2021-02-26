@@ -52,7 +52,10 @@
               "apps/frontend/client/src/favicon.ico",
               "apps/frontend/client/src/assets"
             ],
-            "styles": ["apps/frontend/client/src/styles.scss"],
+            "styles": ["apps/frontend/client/src/styles/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["apps/frontend/client/src/styles"]
+            },
             "scripts": []
           },
           "configurations": {
