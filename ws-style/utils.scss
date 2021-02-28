@@ -1,0 +1,12 @@
+
+/**
+*  Import from angular.material
+*/
+@import '~@angular/material/theming';
+
+/* Import from bootstrap */
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+@import "abstract";
