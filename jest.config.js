@@ -4,4 +4,4 @@ module.exports = {
     '<rootDir>/apps/frontend/admin',
     '<rootDir>/apps/backend/api',
   ],
-};
+}

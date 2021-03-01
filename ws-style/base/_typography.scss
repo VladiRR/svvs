@@ -1,0 +1,59 @@
+/**
+ * Set antialiasing fonts
+ */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * Set default style
+ *
+ * 1 - base font  Roboto
+ * 2 - standard font-size 16px
+ * 3 - standard font-weight normal
+ * 4 - clean shake box-sizing
+ * 5,6 - standard size
+ */
+html, body {
+  font-family: 'Roboto', sans-serif; // 1
+  font-size: 16px;                   // 2
+  font-weight: 400;                  // 3
+  box-sizing: border-box;            // 4
+  min-width: 100%;                   // 5
+  min-height: 100%;                  // 6
+}
+
+/**
+ * Set html height 100%
+ *
+ * 1 - set html fullscreen
+ * 2 - fix Microsoft scroll-style
+ */
+html {
+  height: 100%;                      // 1
+  -ms-overflow-style: scrollbar;     // 2
+}
+
+
+/**
+ * Delegate box-sizing to parent node
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+/**
+ * Set body height in small window 100%
+ */
+body.window-small {
+  height: 100%;
+}
+
+/* Sets default animation duration */
+a, button {
+  transition: all 250ms ease;
+}

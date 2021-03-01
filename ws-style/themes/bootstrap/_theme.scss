@@ -1,0 +1,8 @@
+// Read more https://getbootstrap.com/docs/5.0/customize/sass/
+
+// Import bootstrap mixins
+@import "~bootstrap/scss/mixins/grid";
+
+// Import bootstrap styles
+@import '~bootstrap/scss/containers';
+@import "~bootstrap/scss/grid";
