@@ -8,5 +8,10 @@ export class AuthService {
   login(signInPayload: ISignAuthPayload):Promise<ISignAuthResponse> {
 
     return
+    // {
+    //   accessToken: // JWT
+    //   expiresIn: // JWT
+    //   id: // user service
+    // }
   }
 }
