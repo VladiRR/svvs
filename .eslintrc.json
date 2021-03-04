@@ -22,6 +22,14 @@
             "allow": [],
             "depConstraints": [
               {
+                "sourceTag": "scope:backend-api",
+                "onlyDependOnLibsWithTags": [
+                  "scope:backend-api",
+                  "type:lib",
+                  "scope:shared"
+                ]
+              },
+              {
                 "sourceTag": "scope:frontend-client",
                 "onlyDependOnLibsWithTags": [
                   "scope:frontend-client",
