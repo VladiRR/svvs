@@ -3,7 +3,7 @@ import { GraphQLScalarType } from 'graphql'
 import { Kind } from 'graphql/language'
 
 export const resolverMap = {
-  Data: new GraphQLScalarType({
+  Date: new GraphQLScalarType({
     name: 'Date',
     description: 'Date custom scalar type',
     serialize(value) {

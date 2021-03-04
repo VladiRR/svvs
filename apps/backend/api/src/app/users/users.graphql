@@ -5,7 +5,7 @@ extend type Query {
 type User {
   id: Int
   username: String
-  created: Data
-  updated: Data
+  created: Date
+  updated: Date
   email: String
 }
