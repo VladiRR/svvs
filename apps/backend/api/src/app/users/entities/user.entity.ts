@@ -1,4 +1,4 @@
-import { IUser } from '@svvs/shared/data-access/interfaces'
+import type { IUser } from '@svvs/shared/data-access/interfaces'
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
 @Entity({
