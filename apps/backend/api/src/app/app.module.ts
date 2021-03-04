@@ -7,6 +7,7 @@ import { environment } from '../environments/environment'
 import { AuthModule } from './auth/auth.module'
 import { resolverMap } from './app.resolver'
 import { UserEntity } from './users/entities/user.entity'
+import { UsersModule } from './users/users.module'
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { UserEntity } from './users/entities/user.entity'
       playground: true,
       resolvers: [resolverMap],
     }),
+    UsersModule,
     AuthModule,
   ],
   controllers: [AppController],
