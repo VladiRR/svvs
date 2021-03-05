@@ -18,10 +18,10 @@ export const environment = {
       'dist/apps/backend/api/src/**/*.entity{.ts, .js}',
     ],
     migrations: [
-      'dist/apps/backend/api/migrations/*{.ts, .js}',
+      'dist/apps/backend/api/src/migrations/*{.ts, .js}',
     ],
     cli: {
-      'migrationsDir': 'db/migrations',
+      'migrationsDir': 'migrations',
     },
   },
 }
