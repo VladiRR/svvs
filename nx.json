@@ -26,6 +26,13 @@
       "tags": [],
       "implicitDependencies": ["frontend-admin"]
     },
-    "backend-api": { "tags": ["type:app", "scope:backend-api"] }
+    "backend-api": { "tags": ["type:app", "scope:backend-api"] },
+    "shared-data-access-interfaces": {
+      "tags": [
+        "type:lib",
+        "scope:shared",
+        "lib-type:data-access"
+      ]
+    }
   }
 }
