@@ -17,7 +17,7 @@ export class UserService {
   }
 
   async findOneById(id: number): Promise<UserEntity> {
-    return await (this.userRepository.findOne({id})) || null
+    return await (this.userRepository.findOne(id)) || null
   }
 
   async findOneByUserName(username: string): Promise<UserEntity> {
