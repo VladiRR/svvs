@@ -6,6 +6,12 @@ This project was generated using [Nx](https://nx.dev).
 
 # Quickstart & documentation
 
+[backend-api documentation](https://vladirr.github.io/svvs/api/)
+
+[frontend-client documentation](https://vladirr.github.io/svvs/client/)
+
+[frontend-admin documentation](https://vladirr.github.io/svvs/admin/)
+
 
 
 ### tags:
