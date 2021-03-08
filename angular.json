@@ -39,6 +39,16 @@
       "sourceRoot": "apps/frontend/client/src",
       "prefix": "svvs",
       "architect": {
+        "compodoc": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "mkdir docs-temp && cp README.md ./docs-temp && cp ./apps/frontend/client/docs/README.md ./ && npx compodoc -p apps/frontend/client/tsconfig.compodoc.json --theme vagrant -r 8085 -d docs/client/ && rm README.md && cp ./docs-temp/README.md ./ && rm ./docs-temp/README.md && rmdir ./docs-temp/"
+              }
+            ]
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
@@ -158,6 +168,16 @@
       "sourceRoot": "apps/frontend/admin/src",
       "prefix": "svvs",
       "architect": {
+        "compodoc": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "mkdir docs-temp && cp README.md ./docs-temp && cp ./apps/frontend/admin/docs/README.md ./ && npx compodoc -p apps/frontend/admin/tsconfig.compodoc.json --theme vagrant -r 8085 -d docs/admin/ && rm README.md && cp ./docs-temp/README.md ./ && rm ./docs-temp/README.md && rmdir ./docs-temp/"
+              }
+            ]
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
@@ -277,6 +297,16 @@
       "projectType": "application",
       "prefix": "backend-api",
       "architect": {
+        "compodoc": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "mkdir docs-temp && cp README.md ./docs-temp && cp ./apps/backend/api/docs/README.md ./ && npx compodoc -p apps/backend/api/tsconfig.app.json --theme vagrant -r 8085 -d docs/api/ && rm README.md && cp ./docs-temp/README.md ./ && rm ./docs-temp/README.md && rmdir ./docs-temp/"
+              }
+            ]
+          }
+        },
         "build": {
           "builder": "@nrwl/node:build",
           "outputs": ["{options.outputPath}"],

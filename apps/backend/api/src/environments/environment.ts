@@ -13,6 +13,6 @@ export const environment = {
     database: process.env.DB_NAME,
     dropSchema: false,
     synchronize: true,
-    logging: true,
+    logging: false,
   },
 }
