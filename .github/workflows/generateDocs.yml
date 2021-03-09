@@ -1,4 +1,4 @@
-name: Add Documentation
+name: documentation
 on:
   push:
     branches: [ master ]
