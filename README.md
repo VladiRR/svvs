@@ -1,4 +1,4 @@
-
+[![documentation](https://github.com/VladiRR/svvs/actions/workflows/generateDocs.yml/badge.svg)](https://github.com/VladiRR/svvs/actions/workflows/generateDocs.yml)
 
 # Svvs
 
