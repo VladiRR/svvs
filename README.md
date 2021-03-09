@@ -1,11 +1,11 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <p align="center">
-<img src="https://raw.githubusercontent.com/VladiRR/svvs/master/images/svvs_v02.png" width="250" alt="logo svvs">
+<img src="https://raw.githubusercontent.com/VladiRR/svvs/master/images/svvs_v02.png" width="150" alt="logo svvs">
 </p>
 
 # 
-[![](https://img.shields.io/badge/youtube-chanel-blue??style=plastic&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCE8ux2eOsw_X7XVrI5mpYkg)
-[![](https://img.shields.io/badge/SVVS-chat-blue?style=plastic&logo=telegram&logoColor=white)](https://t.me/svvs_chat)
+[![](https://img.shields.io/badge/youtube-chanel-blue?style=flat&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCE8ux2eOsw_X7XVrI5mpYkg)
+[![](https://img.shields.io/badge/SVVS-chat-blue?style=flat&logo=telegram&logoColor=white)](https://t.me/svvs_chat)
 [![documentation](https://github.com/VladiRR/svvs/actions/workflows/generateDocs.yml/badge.svg)](https://github.com/VladiRR/svvs/actions/workflows/generateDocs.yml)
 
 SVVS is an open source project and YouTube channel showcasing application development in the [Nx](https://nx.dev) mono repository.
@@ -35,12 +35,16 @@ SVVS is an open source project and YouTube channel showcasing application develo
 • [frontend-client](https://vladirr.github.io/svvs/client/)
 • [frontend-admin](https://vladirr.github.io/svvs/admin/)
 
-## How to start
+---
+
+### 📌 How to start
 - Clone repo
+
 - Rename .example.env => .env 
 - run docker daemon (e.g. macOS you can use [Docker Desktop](https://docs.docker.com/docker-for-mac/release-notes/) )
 - if necessary 
   - change .env data
+
 ```
 yarn install                   // install dependensies
 yarn run db:start              // create database
@@ -49,8 +53,20 @@ yarn run db:migrations:run     // apply migration
 yarn run backend-api:start     // start backend server
 yarn run frontend-client:start // start frontend client 
 ```
+---
+#### ⚠️ IMPORTANT
+This repository contains _github action_
+`.github/workflows/generateDocs.yml`
+This action generates up-to-date project documentation with a pull request or a commit to a branch _master_
+To activate these actions:
 
+⚡[generate your personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 
+⚡[create encrypted secrets with a name "ACTION_GH_PAGE"](https://docs.github.com/en/actions/reference/encrypted-secrets)
+
+...or **delete** `.github/workflows/generateDocs.yml` 
+
+---
 
 ### Tags:
 To bring the repository into the state corresponding to the selected tag, run
