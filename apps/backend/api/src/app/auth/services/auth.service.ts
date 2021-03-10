@@ -1,10 +1,10 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common'
-import { ISignAuthPayload, ISignAuthResponse } from '@svvs/shared/data-access/interfaces'
-import { JwtService } from '@nestjs/jwt'
-import { UserService } from '../../users/services/user.service'
-import { PasswordService } from './password.service'
-import { UserEntity } from '../../users/entities/user.entity'
-import { environment } from '../../../environments/environment'
+import {Injectable, UnauthorizedException} from '@nestjs/common'
+import {ISignAuthPayload, ISignAuthResponse} from '@svvs/shared/data-access/interfaces'
+import {JwtService} from '@nestjs/jwt'
+import {UserService} from '../../users/services/user.service'
+import {PasswordService} from './password.service'
+import {UserEntity} from '../../users/entities/user.entity'
+import {environment} from '../../../environments/environment'
 
 
 @Injectable()

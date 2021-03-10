@@ -1,5 +1,5 @@
 extend type Query {
- user(id: Int): User
+  user(id: Int): User
 }
 
 type User {

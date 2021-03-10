@@ -1,8 +1,8 @@
-import type { IUser } from '@svvs/shared/data-access/interfaces'
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import type {IUser} from '@svvs/shared/data-access/interfaces'
+import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm'
 
 @Entity({
-  name: 'users'
+  name: 'users',
 })
 export class UserEntity implements IUser {
   @PrimaryGeneratedColumn()

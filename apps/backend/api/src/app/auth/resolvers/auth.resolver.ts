@@ -1,14 +1,13 @@
-import { Query, Resolver } from '@nestjs/graphql'
-import type { ISignAuthPayload, ISignAuthResponse } from '@svvs/shared/data-access/interfaces'
-import { SignIn } from '../decorators/auth.decorator'
-import { AuthService } from '../services/auth.service'
+import {Query, Resolver} from '@nestjs/graphql'
+import type {ISignAuthPayload, ISignAuthResponse} from '@svvs/shared/data-access/interfaces'
+import {SignIn} from '../decorators/auth.decorator'
+import {AuthService} from '../services/auth.service'
 
 @Resolver('Auth')
 export class AuthResolver {
   constructor(
-    private readonly authService: AuthService
-  )
-   {
+    private readonly authService: AuthService,
+  ) {
   }
 
   @Query('login')
