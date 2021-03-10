@@ -3,6 +3,7 @@
 # secure zone
 .env
 /docs
+/docs-temp
 # compiled output
 /dist
 /tmp
