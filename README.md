@@ -8,7 +8,7 @@
 [![](https://img.shields.io/badge/SVVS-chat-blue?style=flat&logo=telegram&logoColor=white)](https://t.me/svvs_chat)
 [![documentation](https://github.com/VladiRR/svvs/actions/workflows/generateDocs.yml/badge.svg)](https://github.com/VladiRR/svvs/actions/workflows/generateDocs.yml)
 
-SVVS is an open source project and YouTube channel showcasing application development in the [Nx](https://nx.dev) mono repository.
+SVVS is an open source project and [YouTube channel](https://www.youtube.com/channel/UCE8ux2eOsw_X7XVrI5mpYkg) showcasing application development in the [Nx](https://nx.dev) mono repository.
 
 ## The SVVS project includes
 - backend-api server

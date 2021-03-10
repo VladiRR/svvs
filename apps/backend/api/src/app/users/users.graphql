@@ -1,11 +1,42 @@
 extend type Query {
- user(id: Int): User
+  "Find user by id (user.module)"
+  user(
+    "user search parameter"
+    id: Int
+  ): User
 }
 
 type User {
+  "User ID unique identifier (autogenerate)"
   id: Int
-  username: String
+
+  "User creation date (autogenerate)"
   created: Date
+
+  "User update date (autogenerate)"
   updated: Date
+
+  """
+  User e-mail
+  if necessary - set the value {unique: true} in user.entity.ts
+  """
   email: String
+
+  "User phone (optional)"
+  phone: String
+
+  "User password"
+  password: String
+
+  """
+  Username {unique}
+  * Used as default username
+  """
+  username: String
+
+  """
+  Nickname (optional)
+  * If present used as public username
+  """
+  nickname: String
 }

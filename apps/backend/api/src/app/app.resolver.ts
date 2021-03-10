@@ -1,7 +1,10 @@
+import {GraphQLScalarType} from 'graphql'
+import {Kind} from 'graphql/language'
 import GraphQLJSON from 'graphql-type-json'
-import { GraphQLScalarType } from 'graphql'
-import { Kind } from 'graphql/language'
 
+/**
+ * Resolve scalar type Date & JSON
+ */
 export const resolverMap = {
   Date: new GraphQLScalarType({
     name: 'Date',

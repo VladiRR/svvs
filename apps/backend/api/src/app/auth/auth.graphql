@@ -1,11 +1,12 @@
 extend type Query {
-  "It's login query demo description"
+  "request token and login credentials"
   login(
-    "Username it's name current user"
+    "authentication: username as login"
     username: String!,
-    "password it's password"
+    "authentication: password"
     password: String!
   ): SignInResponse
+  "logout request"
   logout: Boolean
 }
 
@@ -15,7 +16,10 @@ multi-line
 comment
 """
 type SignInResponse {
+  "Сurrent user's JWT token "
   accessToken: String
+  "Еime of action accessToken"
   expiresIn: Int
+  "Сurrent user's id"
   id: Int
 }
