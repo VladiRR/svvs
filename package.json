@@ -88,6 +88,7 @@
     "@angular/cli": "11.2.2",
     "@angular/compiler-cli": "11.2.3",
     "@angular/language-service": "11.2.3",
+    "@compodoc/compodoc": "^1.1.11",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
     "@nrwl/cli": "11.4.0",
