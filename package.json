@@ -15,7 +15,7 @@
     "backend-api:start": "ng serve backend-api",
     "backend-api:build": "ng build backend-api",
     "backend-api:test": "ng test backend-api",
-    "backend-api:entities": "node_modules/.bin/tsc --project apps/backend/api/tsconfig.entities.json",
+    "db:entities": "node_modules/.bin/tsc --project apps/backend/api/tsconfig.entities.json",
     "db:migrations:run": "node_modules/.bin/tsc --project apps/backend/api/tsconfig.migrations.json && node_modules/.bin/ts-node node_modules/.bin/typeorm migration:run -t=false",
     "db:migrations:revert": "node_modules/.bin/ts-node node_modules/.bin/typeorm migration:revert",
     "db:migration:create": "node_modules/.bin/ts-node node_modules/.bin/typeorm migration:create -n",
