@@ -3,6 +3,9 @@ import {NestFactory} from '@nestjs/core'
 
 import {AppModule} from './app/app.module'
 
+/**
+ * Bootstrap backend-api app
+ */
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
   const globalPrefix = 'api'

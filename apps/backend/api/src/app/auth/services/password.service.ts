@@ -1,6 +1,9 @@
 import {Injectable} from '@nestjs/common'
 import {compare, hash} from 'bcrypt'
 
+/**
+ * Provide methods bcrypt and compare password
+ */
 @Injectable()
 export class PasswordService {
   /**
