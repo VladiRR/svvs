@@ -1,0 +1,49 @@
+// Demonstration of principles of structure and functioning state, store, routers and actions
+
+function createStore(rootReducer, initialState = {}) {
+  let state = rootReducer({...initialState}, {type: '_INIT_'})
+  let listener = []
+
+  return {
+    subscribe(fn) {
+      listener.push(fn)
+      return {
+        unsubscribe() {
+          listener = listener.filter(l => l !== fn)
+        }
+      }
+    },
+    dispatch(action) {
+      state = rootReducer(state, action)
+      listener.forEach(lis => lis(state))
+    },
+    getState() {
+      return JSON.parse(JSON.stringify(state))
+    }
+  }
+}
+
+function rootReducer(state, action) {
+  let field
+  switch (action.type) {
+    case CHANGE_TEXT:
+      field = action.data.type // login
+      return {
+        ...state,
+        [field]: action.data.value
+      }
+
+  }
+}
+
+function changeText(data) {
+  return {
+    type: CHANGE_TEXT,
+    data
+  }
+}
+
+const CHANGE_TEXT = 'CHANGE_TEXT'
+
+data.value //  то, что мы вводим в поле инпута
+data.type // тип инпута в нашем случае login
