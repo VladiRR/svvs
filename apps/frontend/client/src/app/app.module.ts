@@ -10,7 +10,6 @@ import {RouterModule} from '@angular/router'
     BrowserModule.withServerTransition({ appId: 'svvs-client' }),
     RouterModule.forRoot([], {initialNavigation: 'enabled'})
   ],
-  bootstrap: [AppComponent],
 })
 export class AppModule {
 }
