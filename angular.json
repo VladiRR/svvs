@@ -54,7 +54,7 @@
           "options": {
             "outputPath": "dist/frontend-client/browser",
             "index": "apps/frontend/client/src/index.html",
-            "main": "apps/frontend/client/src/main.ts",
+            "main": "apps/frontend/client/src/main.browser.ts",
             "polyfills": "apps/frontend/client/src/polyfills.ts",
             "tsConfig": "apps/frontend/client/tsconfig.app.json",
             "aot": true,

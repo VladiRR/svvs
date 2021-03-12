@@ -9,6 +9,8 @@
     "frontend-client:start": "ng serve frontend-client",
     "frontend-client:build": "ng build frontend-client",
     "frontend-client:test": "ng test frontend-client",
+    "frontend-client:ssr:build": "ng build frontend-client --prod && ng run frontend-client:server:production",
+    "frontend-client:ssr:serve": "node dist/frontend-client/server/main.js",
     "frontend-admin:start": "ng serve frontend-admin",
     "frontend-admin:build": "ng build frontend-admin",
     "frontend-admin:test": "ng test frontend-admin",
