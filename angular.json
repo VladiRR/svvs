@@ -52,7 +52,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/frontend/client",
+            "outputPath": "dist/frontend-client/browser",
             "index": "apps/frontend/client/src/index.html",
             "main": "apps/frontend/client/src/main.ts",
             "polyfills": "apps/frontend/client/src/polyfills.ts",
@@ -132,6 +132,53 @@
           "options": {
             "jestConfig": "apps/frontend/client/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/frontend-client/server",
+            "main": "apps/frontend/client/server.ts",
+            "tsConfig": "apps/frontend/client/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/frontend/client/src/environments/environment.ts",
+                  "with": "apps/frontend/client/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "frontend-client:build",
+            "serverTarget": "frontend-client:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "frontend-client:build:production",
+              "serverTarget": "frontend-client:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "frontend-client:build:production",
+            "serverTarget": "frontend-client:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
