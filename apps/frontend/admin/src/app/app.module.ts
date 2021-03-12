@@ -11,7 +11,6 @@ import {RouterModule} from '@angular/router'
     RouterModule.forRoot([], {initialNavigation: 'enabled'}),
   ],
   providers: [],
-  bootstrap: [AppComponent],
 })
 export class AppModule {
 }
