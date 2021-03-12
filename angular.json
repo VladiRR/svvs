@@ -230,7 +230,7 @@
           "options": {
             "outputPath": "dist/apps/frontend/admin",
             "index": "apps/frontend/admin/src/index.html",
-            "main": "apps/frontend/admin/src/main.ts",
+            "main": "apps/frontend/admin/src/main.browser.ts",
             "polyfills": "apps/frontend/admin/src/polyfills.ts",
             "tsConfig": "apps/frontend/admin/tsconfig.app.json",
             "aot": true,
