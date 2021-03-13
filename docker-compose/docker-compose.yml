@@ -25,12 +25,15 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
     restart: unless-stopped
     networks:
       - backend
 
 volumes:
   postgres-data:
+  pgadmin-data:
 
 networks:
   backend:
