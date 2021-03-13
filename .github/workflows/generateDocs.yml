@@ -1,18 +1,16 @@
 name: documentation
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
   workflow_dispatch:
-  
+
 jobs:
   createDocs:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone repo 
+      - name: Clone repo
         uses: actions/checkout@v2
-      - name: Install nodejs  
+      - name: Install nodejs
         uses: actions/setup-node@v2
         with:
           node-version: '14'
@@ -20,7 +18,7 @@ jobs:
         run: npm install
       - name: Generate docs
         run: npx nx affected --all --target=compodoc
-    
+
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
