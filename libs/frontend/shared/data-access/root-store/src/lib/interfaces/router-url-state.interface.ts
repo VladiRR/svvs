@@ -1,4 +1,4 @@
-import {Params} from '@angular/router'
+import { Params } from '@angular/router';
 
 /**
  * Router state URL
@@ -7,15 +7,15 @@ export interface IRouterUrlState {
   /**
    * URL
    */
-  url: string
+  url: string;
 
   /**
    * Route params
    */
-  params: Params
+  params: Params;
 
   /**
    * Route query params
    */
-  queryParams: Params
+  queryParams: Params;
 }

@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'frontend-client-data-access-root-store',
-  preset: '../../../../jest.preset.js',
+  displayName: 'frontend-shared-data-access-root-store',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   coverageDirectory:
-    '../../../../coverage/libs/frontend-client/data-access/root-store',
+    '../../../../../coverage/libs/frontend/shared/data-access/root-store',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
