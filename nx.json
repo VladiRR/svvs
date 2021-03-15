@@ -28,11 +28,8 @@
     },
     "backend-api": { "tags": ["type:app", "scope:backend-api"] },
     "shared-data-access-interfaces": {
-      "tags": [
-        "type:lib",
-        "scope:shared",
-        "lib-type:data-access"
-      ]
-    }
+      "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
+    },
+    "frontend-client-data-access-root-store": { "tags": ["type:lib", "scope:frontend-client", "lib-type:data-access"] }
   }
 }

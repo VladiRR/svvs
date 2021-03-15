@@ -17,6 +17,9 @@
     "paths": {
       "@svvs/shared/data-access/interfaces": [
         "libs/shared/data-access/interfaces/src/index.ts"
+      ],
+      "@svvs/frontend-client/data-access/root-store": [
+        "libs/frontend-client/data-access/root-store/src/index.ts"
       ]
     }
   },
