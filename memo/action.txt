@@ -1,0 +1,58 @@
+// Создание action через класс
+import {Action, createAction, createReducer, props} from '@ngrx/store'
+import {rootInitialState} from '../libs/frontend/shared/data-access/root-store/src/lib/+state/root-initial-state'
+
+export enum UserActionType {
+  LoadUser ='[User] Load User'
+}
+//
+// export class LoadUser implements Action{
+//   readonly type: UserActionType.LoadUser
+//
+//   constructor(public userId: number) {
+//   }
+// }
+//
+// export type UserAction = LoadUser
+
+// использование функции createAction
+export const loadUser = createAction(
+  '[User] Load User',
+  props<{
+    payload: { userId: number }
+  }>()
+)
+
+export const loadUserRun = createAction(
+  '[User] Load User Run',
+  props<{
+    payload: { userId: number }
+  }>()
+)
+
+export const loadUserSuccess = createAction(
+  '[User] Load User Success',
+  props<{
+    payload: { userId: number }
+  }>()
+)
+
+// это демонстрационный код, а не реальная ситуация
+//
+// const userReducer = createReducer(
+//   rootInitialState,
+//   on(loadUser, state => ({...state, loaded: false})),
+//   on(loadUserRun, state => ({...state, loaded: true}))
+//
+// )
+
+//
+// {
+//   type
+//   userId
+// }
+
+// конвенция именования actions
+
+
+// Действие - Сущность - Состояние/Статус

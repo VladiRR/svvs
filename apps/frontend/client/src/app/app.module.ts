@@ -1,16 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
-import { RootStoreModule } from '@svvs/frontend/shared/data-access/root-store';
+import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser'
+import {NgModule} from '@angular/core'
+import {HttpClientModule} from '@angular/common/http'
+import {TransferHttpCacheModule} from '@nguniversal/common'
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'svvs-client' }),
-    RootStoreModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    BrowserModule.withServerTransition({appId: 'svvs-client'}),
+    HttpClientModule,
+    BrowserTransferStateModule,
+    TransferHttpCacheModule,
   ],
 })
-export class AppModule {}
+export class AppModule {
+}
