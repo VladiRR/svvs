@@ -1,17 +1,27 @@
-import { NgModule } from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core'
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromUser from './+state/user.reducer';
 import { UserEffects } from './+state/user.effects';
-import { UserFacade } from './+state/user.facade';
 
 @NgModule({
   imports: [
     CommonModule,
     StoreModule.forFeature(fromUser.USER_FEATURE_KEY, fromUser.reducer),
     EffectsModule.forFeature([UserEffects]),
-  ],
-  providers: [UserFacade],
+  ]
 })
-export class UserStoreModule {}
+export class UsersStoreModule {
+  static forRoot(options: Partial<IUserStoreOptions>): ModuleWithProviders<UsersStoreModule> {
+    return {
+      ngModule: UsersStoreModule,
+      providers: []
+    }
+  }
+}
+
+// TODO удалить заглушку
+export interface IUserStoreOptions {
+  apollo: string
+}
