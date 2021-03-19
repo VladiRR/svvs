@@ -24,7 +24,8 @@
       ],
       "@svvs/frontend/shared/data-access/user-store": [
         "libs/frontend/shared/data-access/user-store/src/index.ts"
-      ]
+      ],
+      "@svvs/shared/utils/store": ["libs/shared/utils/store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
