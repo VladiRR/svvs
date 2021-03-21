@@ -397,38 +397,6 @@
         }
       }
     },
-    "shared-data-access-interfaces": {
-      "root": "libs/shared/data-access/interfaces",
-      "sourceRoot": "libs/shared/data-access/interfaces/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/data-access/interfaces/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/data-access/interfaces"],
-          "options": {
-            "jestConfig": "libs/shared/data-access/interfaces/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "builder": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/shared/data-access/interfaces",
-            "tsConfig": "libs/shared/data-access/interfaces/tsconfig.lib.json",
-            "packageJson": "libs/shared/data-access/interfaces/package.json",
-            "main": "libs/shared/data-access/interfaces/src/index.ts",
-            "assets": ["libs/shared/data-access/interfaces/*.md"]
-          }
-        }
-      }
-    },
     "frontend-shared-data-access-root-store": {
       "projectType": "library",
       "root": "libs/frontend/shared/data-access/root-store",
@@ -496,6 +464,38 @@
           "options": {
             "jestConfig": "libs/shared/utils/store/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-utils-interfaces": {
+      "root": "libs/shared/utils/interfaces",
+      "sourceRoot": "libs/shared/utils/interfaces/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/utils/interfaces/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/utils/interfaces"],
+          "options": {
+            "jestConfig": "libs/shared/utils/interfaces/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/utils/interfaces",
+            "tsConfig": "libs/shared/utils/interfaces/tsconfig.lib.json",
+            "packageJson": "libs/shared/utils/interfaces/package.json",
+            "main": "libs/shared/utils/interfaces/src/index.ts",
+            "assets": ["libs/shared/utils/interfaces/*.md"]
           }
         }
       }

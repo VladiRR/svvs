@@ -5,5 +5,5 @@ export interface IActionForcePayload {
   /**
    * Boolean flag to force payload
    */
-  force?: boolean
+  force?: boolean;
 }

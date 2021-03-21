@@ -1,5 +1,5 @@
-import {ActionCreatorProps, props} from '@ngrx/store'
-import {IActionForcePayload} from '@svvs/shared/data-access/interfaces'
+import { ActionCreatorProps, props } from '@ngrx/store';
+import { IActionForcePayload } from '@svvs/shared/utils/interfaces';
 
 /**
  * Payload is payload-creator function with force
@@ -11,6 +11,8 @@ import {IActionForcePayload} from '@svvs/shared/data-access/interfaces'
  *
  *
  */
-export function payloadForce<P extends Record<string, unknown>>(): ActionCreatorProps<{ payload: P & IActionForcePayload }> {
-  return props<{ payload: P & IActionForcePayload }>()
+export function payloadForce<
+  P extends Record<string, unknown>
+>(): ActionCreatorProps<{ payload: P & IActionForcePayload }> {
+  return props<{ payload: P & IActionForcePayload }>();
 }

@@ -1,12 +1,15 @@
-import {Injectable, UnauthorizedException} from '@nestjs/common'
-import {JwtService} from '@nestjs/jwt'
+import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 
-import {ISignAuthPayload, ISignAuthResponse} from '@svvs/shared/data-access/interfaces'
-import {environment} from '../../../environments/environment'
+import {
+  ISignAuthPayload,
+  ISignAuthResponse,
+} from '@svvs/shared/utils/interfaces';
+import { environment } from '../../../environments/environment';
 
-import {UserService} from '../../users/services/user.service'
-import {PasswordService} from './password.service'
-import {UserEntity} from '../../users/entities/user.entity'
+import { UserService } from '../../users/services/user.service';
+import { PasswordService } from './password.service';
+import { UserEntity } from '../../users/entities/user.entity';
 
 /**
  * This AuthService validate user and return SignAuthResponse
@@ -23,9 +26,8 @@ export class AuthService {
   constructor(
     private readonly jwtService: JwtService,
     private readonly userService: UserService,
-    private readonly passwordService: PasswordService,
-  ) {
-  }
+    private readonly passwordService: PasswordService
+  ) {}
 
   /**
    * Validate users
@@ -33,18 +35,22 @@ export class AuthService {
    * @param username
    * @param pass
    */
-  async validateUser(username: string, pass: string): Promise<Omit<UserEntity, 'password'>> {
+  async validateUser(
+    username: string,
+    pass: string
+  ): Promise<Omit<UserEntity, 'password'>> {
+    const user = await this.userService.findOneByUserName(username);
 
-    const user = await this.userService.findOneByUserName(username)
-
-    const isValid = user ? await this.passwordService.compareHash(pass, user.password) : false
+    const isValid = user
+      ? await this.passwordService.compareHash(pass, user.password)
+      : false;
 
     if (isValid) {
-      delete user.password
+      delete user.password;
 
-      return user
+      return user;
     }
-    return null
+    return null;
   }
 
   /**
@@ -53,19 +59,21 @@ export class AuthService {
    * @param signInPayload Incoming login data
    */
   async login(signInPayload: ISignAuthPayload): Promise<ISignAuthResponse> {
-
-    const user = await this.validateUser(signInPayload.username, signInPayload.password)
+    const user = await this.validateUser(
+      signInPayload.username,
+      signInPayload.password
+    );
 
     if (!user) {
-      throw new UnauthorizedException()
+      throw new UnauthorizedException();
     }
 
-    const payload = {username: user.username, userId: user.id}
+    const payload = { username: user.username, userId: user.id };
 
     return {
       accessToken: this.jwtService.sign(payload),
       expiresIn: new Date(environment.jwt.expiresIn).getDate(),
       id: user.id,
-    }
+    };
   }
 }
