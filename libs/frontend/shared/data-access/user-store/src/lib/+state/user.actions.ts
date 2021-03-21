@@ -1,14 +1,13 @@
-import { createAction, props } from '@ngrx/store';
+import {createAction} from '@ngrx/store'
+import {ApolloError} from '@apollo/client'
 
-export const init = createAction('[User Page] Init');
+import {payload, payloadForce} from '@svvs/shared/utils/store'
+import {IUser} from '@svvs/shared/utils/interfaces'
 
-export const loadUserSuccess = createAction(
-  '[User/API] Load User Success',
-  props<{ user: string }>()
-);
 
-export const loadUserFailure = createAction(
-  '[User/API] Load User Failure',
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  props<{ error: any }>()
-);
+export const loadUser = createAction('[IUser] Load User', payloadForce())
+export const loadUserCancel = createAction(('[IUser] Load User Cancel'))
+export const loadUserRun = createAction('[IUser] Load User Run')
+export const loadUserSuccess = createAction('[IUser] Load User Success', payload<IUser>())
+export const loadUserFailure = createAction('[IUser] Load User Failure', payload<ApolloError>())
+
