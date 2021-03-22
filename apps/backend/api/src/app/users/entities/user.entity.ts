@@ -1,6 +1,12 @@
-import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm'
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-import type {IUser} from '@svvs/shared/data-access/interfaces'
+import type { IUser } from '@svvs/shared/utils/interfaces';
 
 /**
  * Entity users provide access to db table users
@@ -13,19 +19,19 @@ export class UserEntity implements IUser {
    * User ID unique identifier (autogenerate)
    */
   @PrimaryGeneratedColumn()
-  id: number
+  id: number;
 
   /**
    * User creation date (autogenerate)
    */
   @CreateDateColumn()
-  created: string
+  created: string;
 
   /**
    * User update date (autogenerate)
    */
   @UpdateDateColumn()
-  updated: string
+  updated: string;
 
   /**
    * User e-mail
@@ -34,19 +40,19 @@ export class UserEntity implements IUser {
    *
    */
   @Column()
-  email: string
+  email: string;
 
   /**
    * User phone (optional)
    */
-  @Column({nullable: true})
-  phone: string
+  @Column({ nullable: true })
+  phone: string;
 
   /**
    * User password
    */
   @Column()
-  password: string
+  password: string;
 
   /**
    * Username {unique}
@@ -55,8 +61,8 @@ export class UserEntity implements IUser {
    *
    * Used as default username
    */
-  @Column({length: 50, unique: true})
-  username: string
+  @Column({ length: 50, unique: true })
+  username: string;
 
   /**
    * User nickname (optional)
@@ -65,6 +71,6 @@ export class UserEntity implements IUser {
    *
    * If present used as public username
    */
-  @Column({length: 50, unique: true, nullable: true})
-  nickname: string
+  @Column({ length: 50, unique: true, nullable: true })
+  nickname: string;
 }

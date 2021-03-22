@@ -9,32 +9,32 @@ export interface IUser {
   /**
    * user ID
    */
-  id: number
+  id: number;
 
   /**
    *  User creation date
    */
-  created: string
+  created: string;
 
   /**
    * User update date
    */
-  updated: string
+  updated: string;
 
   /**
    * User's e-mail
    */
-  email: string
+  email: string;
 
   /**
    *  User's phone (optional)
    */
-  phone?: string
+  phone?: string;
 
   /**
    * User's password
    */
-  password: string
+  password: string;
 
   /**
    * User's name
@@ -43,7 +43,7 @@ export interface IUser {
    *
    * Used as default username
    */
-  username: string
+  username: string;
 
   /**
    * User's nickname
@@ -52,5 +52,5 @@ export interface IUser {
    *
    * If present used as public username
    */
-  nickname?: string
+  nickname?: string;
 }

@@ -1,9 +1,12 @@
-import {Query, Resolver} from '@nestjs/graphql'
+import { Query, Resolver } from '@nestjs/graphql';
 
-import type {ISignAuthPayload, ISignAuthResponse} from '@svvs/shared/data-access/interfaces'
+import type {
+  ISignAuthPayload,
+  ISignAuthResponse,
+} from '@svvs/shared/utils/interfaces';
 
-import {SignIn} from '../decorators/auth.decorator'
-import {AuthService} from '../services/auth.service'
+import { SignIn } from '../decorators/auth.decorator';
+import { AuthService } from '../services/auth.service';
 
 /**
  * AuthResolver execute auth.graphql query
@@ -15,10 +18,7 @@ export class AuthResolver {
    *
    * @param authService validate user and return SignAuthResponse
    */
-  constructor(
-    private readonly authService: AuthService,
-  ) {
-  }
+  constructor(private readonly authService: AuthService) {}
 
   /**
    * Implement GraphQL Query 'login'
@@ -26,8 +26,10 @@ export class AuthResolver {
    * @param signInPayload from lib shared-data-access-interfaces
    */
   @Query('login')
-  async login(@SignIn() signInPayload: ISignAuthPayload): Promise<ISignAuthResponse> {
-    return await this.authService.login(signInPayload)
+  async login(
+    @SignIn() signInPayload: ISignAuthPayload
+  ): Promise<ISignAuthResponse> {
+    return await this.authService.login(signInPayload);
   }
 
   /**
@@ -35,7 +37,6 @@ export class AuthResolver {
    */
   @Query('logout')
   async logout(): Promise<boolean> {
-    return true
+    return true;
   }
-
 }

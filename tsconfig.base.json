@@ -16,14 +16,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@svvs/shared/data-access/interfaces": [
-        "libs/shared/data-access/interfaces/src/index.ts"
-      ],
       "@svvs/frontend/shared/data-access/root-store": [
         "libs/frontend/shared/data-access/root-store/src/index.ts"
       ],
       "@svvs/frontend/shared/data-access/user-store": [
         "libs/frontend/shared/data-access/user-store/src/index.ts"
+      ],
+      "@svvs/shared/utils/store": ["libs/shared/utils/store/src/index.ts"],
+      "@svvs/shared/utils/interfaces": [
+        "libs/shared/utils/interfaces/src/index.ts"
       ]
     }
   },
