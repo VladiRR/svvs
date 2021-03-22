@@ -9,7 +9,7 @@ export interface IApolloRequest {
   /**
    * Request entity keys
    */
-  keys?: string;
+  keys?: string[];
   /**
    * Apollo request query
    */

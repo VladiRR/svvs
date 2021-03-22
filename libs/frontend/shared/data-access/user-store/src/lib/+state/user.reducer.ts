@@ -1,8 +1,8 @@
 import {Action, createReducer, on} from '@ngrx/store'
 
+import {IUserState} from '../interfaces/user-state.interface'
 import * as UserActions from './user.actions'
 import {userInitialState} from './user-initial-state'
-import {IUserState} from '../interfaces/user-state.interface'
 
 
 export const USER_FEATURE_KEY = 'user'
