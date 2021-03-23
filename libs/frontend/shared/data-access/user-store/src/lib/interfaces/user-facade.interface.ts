@@ -1,5 +1,5 @@
 import {Observable} from 'rxjs'
-import {IUser} from '@svvs/shared/data-access/interfaces'
+import {IUser} from '@svvs/shared/utils/interfaces'
 
 /**
  * User facade
