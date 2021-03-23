@@ -499,6 +499,31 @@
           }
         }
       }
+    },
+    "shared-utils-storage": {
+      "projectType": "library",
+      "root": "libs/shared/utils/storage",
+      "sourceRoot": "libs/shared/utils/storage/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/utils/storage/src/**/*.ts",
+              "libs/shared/utils/storage/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/utils/storage"],
+          "options": {
+            "jestConfig": "libs/shared/utils/storage/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

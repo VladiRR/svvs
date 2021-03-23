@@ -1,14 +1,9 @@
 {
   "npmScope": "svvs",
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -17,29 +12,21 @@
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
   "projects": {
-    "frontend-client": {
-      "tags": ["scope:frontend-client", "type:app"]
-    },
+    "frontend-client": { "tags": ["scope:frontend-client", "type:app"] },
     "frontend/client-e2e": {
       "tags": [],
       "implicitDependencies": ["frontend-client"]
     },
-    "frontend-admin": {
-      "tags": ["scope:frontend-admin", "type:app"]
-    },
+    "frontend-admin": { "tags": ["scope:frontend-admin", "type:app"] },
     "frontend/admin-e2e": {
       "tags": [],
       "implicitDependencies": ["frontend-admin"]
     },
-    "backend-api": {
-      "tags": ["type:app", "scope:backend-api"]
-    },
+    "backend-api": { "tags": ["type:app", "scope:backend-api"] },
     "frontend-shared-data-access-root-store": {
       "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
     },
@@ -51,6 +38,7 @@
     },
     "shared-utils-interfaces": {
       "tags": ["type:lib", "scope:shared", "lib-type:utils"]
-    }
+    },
+    "shared-utils-storage": { "tags": [] }
   }
 }
