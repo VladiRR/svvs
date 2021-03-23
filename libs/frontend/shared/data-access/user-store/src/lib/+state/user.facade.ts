@@ -4,25 +4,41 @@ import {select, Store} from '@ngrx/store'
 
 import * as UserActions from './user.actions'
 import * as UserSelectors from './user.selectors'
+import {IUserFacade} from '../interfaces/user-facade.interface'
+import {IUserStoreFeatureKey} from '../interfaces/user-store-feature-key.interface'
 
+/**
+ * User store Facade
+ *
+ */
 @Injectable()
-export class UserFacade {
+export class UserFacade implements IUserFacade {
   /**
-   * Combine pieces of state using createSelector,
-   * and expose them as observables through the facade.
+   * get user entity
    */
-  loaded$ = this.store.pipe(select(UserSelectors.getUserLoaded))
-  allUser$ = this.store.pipe(select(UserSelectors.getAllUser))
-  selectedUser$ = this.store.pipe(select(UserSelectors.getSelected))
+  user$ = this.store.pipe(select(UserSelectors.getUser))
 
-  constructor(private store: Store) {
+  /**
+   * get user load error
+   */
+  userLoadFailure$ = this.store.pipe(select(UserSelectors.getUserLoadFailure))
+
+  /**
+   * get user load status
+   */
+  userLoadRun$ = this.store.pipe(select(UserSelectors.getUserLoadRun))
+
+  constructor(private store: Store<IUserStoreFeatureKey>) {
   }
 
   /**
-   * Use the initialization action to perform one
-   * or more tasks in your Effects.
+   * init(dispatch) action loadUser
+   *
+   * @param force Force
    */
-  init() {
-    this.store.dispatch(UserActions.init())
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  loadUser(force?: boolean): void {
+    this.store.dispatch(UserActions.loadUser({payload: {force: true}}))
   }
+
 }
