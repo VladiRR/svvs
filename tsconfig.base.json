@@ -25,7 +25,8 @@
       "@svvs/shared/utils/store": ["libs/shared/utils/store/src/index.ts"],
       "@svvs/shared/utils/interfaces": [
         "libs/shared/utils/interfaces/src/index.ts"
-      ]
+      ],
+      "@svvs/shared/utils/storage": ["libs/shared/utils/storage/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
