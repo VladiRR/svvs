@@ -51,7 +51,25 @@ yarn run db:start              // create database
 yarn run db:entites            // apply entities
 yarn run db:migrations:run     // apply migration
 yarn run backend-api:start     // start backend server
+```
+* fix  Observable warning Apollo
+
+Before run angular app find
+
+`node_modules/@apollo/client/utilities/observables/Observable.js`
+
+replace
+
+`import { Observable } from "zen-observable";`
+
+to
+
+`import { Observable } from "zen-observable-ts";`
+
+* Run frontend application
+```
 yarn run frontend-client:start // start frontend client 
+yarn run frontend-admin:start // start frontend admin 
 ```
 ---
 #### ⚠️ IMPORTANT

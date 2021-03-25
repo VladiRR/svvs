@@ -1,6 +1,30 @@
 # Fix Observable warning
 
-# zen-observable-ts
+### fix  Observable warning Apollo
+
+
+* Before run angular app
+
+ find
+
+`node_modules/@apollo/client/utilities/observables/Observable.js`
+
+replace
+
+`import { Observable } from "zen-observable";`
+
+to
+
+`import { Observable } from "zen-observable-ts";`
+
+* Run frontend application
+```
+yarn run frontend-client:start // start frontend client 
+yarn run frontend-admin:start // start frontend admin 
+```
+---
+---
+### zen-observable-ts
 
 Thin wrapper around [`zen-observable`](https://www.npmjs.com/package/zen-observable) and [`@types/zen-observable`](https://www.npmjs.com/package/@types/zen-observable), to support ESM exports as well as CommonJS exports, with TypeScript types provided by `@types/zen-observable`.
 
