@@ -14,7 +14,7 @@ export const authStorageKey: { [key: string]: string } = {
  * Base auth-storage implementation
  */
 @Injectable()
-export class BaseAuthStorageService implements IAuthStorage {
+export class BaseAuthStorage implements IAuthStorage {
   constructor(
     private storage: ILocalStorage
   ) {
