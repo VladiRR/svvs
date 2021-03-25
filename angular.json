@@ -524,6 +524,31 @@
           }
         }
       }
+    },
+    "frontend-shared-data-access-auth-store": {
+      "projectType": "library",
+      "root": "libs/frontend/shared/data-access/auth-store",
+      "sourceRoot": "libs/frontend/shared/data-access/auth-store/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/shared/data-access/auth-store/src/**/*.ts",
+              "libs/frontend/shared/data-access/auth-store/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend/shared/data-access/auth-store"],
+          "options": {
+            "jestConfig": "libs/frontend/shared/data-access/auth-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
