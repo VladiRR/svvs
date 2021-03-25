@@ -59,36 +59,36 @@ export class BaseCookieService implements ICookieService {
     let cookieString: string = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';'
     if (options.expires) {
       cookieString += 'expires=' + options.expires.toUTCString() + ';'
+    }
 
-      if (options.path) {
-        cookieString += 'path=' + options.path + ';'
-      }
+    if (options.path) {
+      cookieString += 'path=' + options.path + ';'
+    }
 
-      if (options.domain) {
-        cookieString += 'domain=' + options.domain + ';'
-      }
+    if (options.domain) {
+      cookieString += 'domain=' + options.domain + ';'
+    }
 
-      if (options.secure === false && options.sameSite === 'none') {
-        options.secure = true
-        console.warn(
-          `[ngx-cookie-service] Cookie ${name} was forced with secure flag because sameSite=None.` +
-          `More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130`,
-        )
-      }
+    if (options.secure === false && options.sameSite === 'none') {
+      options.secure = true
+      console.warn(
+        `[ngx-cookie-service] Cookie ${name} was forced with secure flag because sameSite=None.` +
+        `More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130`,
+      )
+    }
 
-      if (options.secure) {
-        cookieString += 'secure;'
-      }
+    if (options.secure) {
+      cookieString += 'secure;'
+    }
 
-      if (options.sameSite) {
-        cookieString += 'sameSite=' + options.sameSite + ';'
-      }
+    if (options.sameSite) {
+      cookieString += 'sameSite=' + options.sameSite + ';'
+    }
 
-      if (this.isBrowser) {
-        this.document.cookie = cookieString
-      } else {
-        this.request.headers.cookie = cookieString
-      }
+    if (this.isBrowser) {
+      this.document.cookie = cookieString
+    } else {
+      this.request.headers.cookie = cookieString
     }
   }
 
@@ -105,11 +105,11 @@ export class BaseCookieService implements ICookieService {
     const cookies: any = this.getAll()
 
     if (this.isBrowser) {
-      for ( const cookieName of Object.keys(cookies)) {
+      for (const cookieName of Object.keys(cookies)) {
         this.remove(cookieName, path, domain)
       }
     } else {
-      for ( const cookieName of Object.keys(cookies)) {
+      for (const cookieName of Object.keys(cookies)) {
         this.response.clearCookie(cookieName, {path, domain})
       }
     }
