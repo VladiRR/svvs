@@ -8,7 +8,7 @@
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Storage
  */
 
-export abstract class IAbstractStorage implements Storage {
+export abstract class IStorage implements Storage {
 
   readonly length: number
 

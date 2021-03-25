@@ -1,8 +1,8 @@
-import {IAbstractStorage} from './abstract-storage.interface'
+import {IStorage} from './abstract-storage.interface'
 
 /**
  * Abstract Session Storage
  *
  * @see https://developer.mozilla.org/ru/docs/Web/API/Window/sessionStorage
  */
-export abstract class ISessionStorage extends IAbstractStorage {}
+export abstract class ISessionStorage extends IStorage {}

@@ -1,8 +1,8 @@
-import {IAbstractStorage} from './abstract-storage.interface'
+import {IStorage} from './abstract-storage.interface'
 
 /**
  * Abstract Cookie Storage
  *
  * @see  https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
  */
-export abstract class ICookieStorage extends IAbstractStorage {}
+export abstract class ICookieStorage extends IStorage {}
