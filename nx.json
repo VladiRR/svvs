@@ -39,6 +39,11 @@
     "shared-utils-interfaces": {
       "tags": ["type:lib", "scope:shared", "lib-type:utils"]
     },
-    "shared-utils-storage": { "tags": ["type:lib", "scope:shared", "lib-type:utils"] }
+    "shared-utils-storage": {
+      "tags": ["type:lib", "scope:shared", "lib-type:utils"]
+    },
+    "frontend-shared-data-access-auth-store": {
+      "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
+    }
   }
 }
