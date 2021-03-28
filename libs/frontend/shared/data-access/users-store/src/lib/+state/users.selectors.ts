@@ -1,10 +1,10 @@
 import {createFeatureSelector, createSelector} from '@ngrx/store'
 
-import {IUserState} from '../interfaces/user-state.interface'
-import {USER_FEATURE_KEY} from './user.reducer'
+import {IUsersState} from '../interfaces/users-state.interface'
+import {USERS_FEATURE_KEY} from './users.reducer'
 
 
-export const getUserState = createFeatureSelector<IUserState>(USER_FEATURE_KEY)
+export const getUserState = createFeatureSelector<IUsersState>(USERS_FEATURE_KEY)
 
 export const getUser = createSelector(getUserState, state => state.user)
 export const getUserLoadRun = createSelector(getUserState, state => state.userLoadRun)

@@ -30,7 +30,7 @@
     "frontend-shared-data-access-root-store": {
       "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
     },
-    "frontend-shared-data-access-user-store": {
+    "frontend-shared-data-access-users-store": {
       "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
     },
     "shared-utils-store": {

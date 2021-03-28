@@ -1,7 +1,7 @@
 /**
  * User load interface
  */
-export interface IUserLoadPayload {
+export interface IUsersLoadPayload {
   /**
    * User ID
    */

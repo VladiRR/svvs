@@ -422,26 +422,26 @@
         }
       }
     },
-    "frontend-shared-data-access-user-store": {
+    "frontend-shared-data-access-users-store": {
       "projectType": "library",
-      "root": "libs/frontend/shared/data-access/user-store",
-      "sourceRoot": "libs/frontend/shared/data-access/user-store/src",
+      "root": "libs/frontend/shared/data-access/users-store",
+      "sourceRoot": "libs/frontend/shared/data-access/users-store/src",
       "prefix": "svvs",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/frontend/shared/data-access/user-store/src/**/*.ts",
-              "libs/frontend/shared/data-access/user-store/src/**/*.html"
+              "libs/frontend/shared/data-access/users-store/src/**/*.ts",
+              "libs/frontend/shared/data-access/users-store/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/frontend/shared/data-access/user-store"],
+          "outputs": ["coverage/libs/frontend/shared/data-access/users-store"],
           "options": {
-            "jestConfig": "libs/frontend/shared/data-access/user-store/jest.config.js",
+            "jestConfig": "libs/frontend/shared/data-access/users-store/jest.config.js",
             "passWithNoTests": true
           }
         }

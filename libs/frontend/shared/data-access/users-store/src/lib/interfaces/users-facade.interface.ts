@@ -5,7 +5,7 @@ import {ApolloError} from '@apollo/client'
 /**
  * User facade
  */
-export abstract class IUserFacade {
+export abstract class IUsersFacade {
 
   /**
    * User entity observer

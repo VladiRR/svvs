@@ -3,7 +3,7 @@ import {gql} from 'apollo-angular'
 import {IApolloRequest} from '@svvs/shared/utils/interfaces'
 
 
-export const userRequest: IApolloRequest = {
+export const usersRequest: IApolloRequest = {
   keys: ['user'],
   query: gql`
     query {

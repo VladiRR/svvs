@@ -10,7 +10,7 @@
       ],
       "parserOptions": {
         "project": [
-          "libs/frontend/shared/data-access/user-store/tsconfig.*?.json"
+          "libs/frontend/shared/data-access/users-store/tsconfig.*?.json"
         ]
       },
       "rules": {

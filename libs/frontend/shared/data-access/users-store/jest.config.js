@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'frontend-shared-data-access-user-store',
+  displayName: 'frontend-shared-data-access-users-store',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   coverageDirectory:
-    '../../../../../coverage/libs/frontend/shared/data-access/user-store',
+    '../../../../../coverage/libs/frontend/shared/data-access/users-store',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

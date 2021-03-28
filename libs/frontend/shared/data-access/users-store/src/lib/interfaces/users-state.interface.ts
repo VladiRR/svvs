@@ -4,7 +4,7 @@ import {ApolloError} from '@apollo/client'
 /**
  * User-state interface
  */
-export interface IUserState {
+export interface IUsersState {
   /**
    * User entity
    */

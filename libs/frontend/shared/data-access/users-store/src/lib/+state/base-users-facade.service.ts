@@ -2,17 +2,17 @@ import {Injectable} from '@angular/core'
 
 import {select, Store} from '@ngrx/store'
 
-import * as UserActions from './user.actions'
-import * as UserSelectors from './user.selectors'
-import {IUserFacade} from '../interfaces/user-facade.interface'
-import {IUserStoreFeatureKey} from '../interfaces/user-store-feature-key.interface'
+import * as UserActions from './users.actions'
+import * as UserSelectors from './users.selectors'
+import {IUsersFacade} from '../interfaces/users-facade.interface'
+import {IUsersStoreFeatureKey} from '../interfaces/users-store-feature-key.interface'
 
 /**
  * User store Facade
  *
  */
 @Injectable()
-export class UserFacade implements IUserFacade {
+export class BaseUsersFacade implements IUsersFacade {
   /**
    * get user entity
    */
@@ -28,7 +28,7 @@ export class UserFacade implements IUserFacade {
    */
   userLoadRun$ = this.store.pipe(select(UserSelectors.getUserLoadRun))
 
-  constructor(private store: Store<IUserStoreFeatureKey>) {
+  constructor(private store: Store<IUsersStoreFeatureKey>) {
   }
 
   /**

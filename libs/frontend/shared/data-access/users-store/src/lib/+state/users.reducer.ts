@@ -1,14 +1,14 @@
 import {Action, createReducer, on} from '@ngrx/store'
 
-import {IUserState} from '../interfaces/user-state.interface'
-import * as UserActions from './user.actions'
-import {userInitialState} from './user-initial-state'
+import {IUsersState} from '../interfaces/users-state.interface'
+import * as UserActions from './users.actions'
+import {usersInitialState} from './users-initial-state'
 
 
-export const USER_FEATURE_KEY = 'user'
+export const USERS_FEATURE_KEY = 'user'
 
-const userReducer = createReducer(
-  userInitialState,
+const usersReducer = createReducer(
+  usersInitialState,
   on(UserActions.loadUserRun, state => ({
     ...state,
     userLoadRun: true,
@@ -27,6 +27,6 @@ const userReducer = createReducer(
 )
 
 
-export function reducer(state: IUserState | undefined, action: Action) {
-  return userReducer(state, action)
+export function reducer(state: IUsersState | undefined, action: Action) {
+  return usersReducer(state, action)
 }

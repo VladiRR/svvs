@@ -19,8 +19,8 @@
       "@svvs/frontend/shared/data-access/root-store": [
         "libs/frontend/shared/data-access/root-store/src/index.ts"
       ],
-      "@svvs/frontend/shared/data-access/user-store": [
-        "libs/frontend/shared/data-access/user-store/src/index.ts"
+      "@svvs/frontend/shared/data-access/users-store": [
+        "libs/frontend/shared/data-access/users-store/src/index.ts"
       ],
       "@svvs/shared/utils/store": ["libs/shared/utils/store/src/index.ts"],
       "@svvs/shared/utils/interfaces": [
