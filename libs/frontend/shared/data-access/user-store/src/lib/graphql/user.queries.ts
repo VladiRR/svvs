@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client'
+import {gql} from 'apollo-angular'
 
 import {IApolloRequest} from '@svvs/shared/utils/interfaces'
 
