@@ -6,7 +6,9 @@ import * as UserQieries from '../graphql/user.queries'
 import {catchError, map} from 'rxjs/operators'
 import {ApolloError} from '@apollo/client'
 import {throwError} from 'rxjs'
+import {Injectable} from '@angular/core'
 
+@Injectable()
 export class UserApollo implements IUserApollo {
   constructor( private apollo: Apollo) {
   }

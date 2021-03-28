@@ -6,6 +6,9 @@ import {NxModule} from '@nrwl/angular'
 import {RouterModule} from '@angular/router'
 import {RootStoreModule} from '@svvs/frontend/shared/data-access/root-store'
 import {AppComponent} from './components/app/app.component'
+import {AuthStoreModule} from '@svvs/frontend/shared/data-access/auth-store'
+import {EffectsModule} from '@ngrx/effects'
+import {UsersStoreModule} from '@svvs/frontend/shared/data-access/user-store'
 
 
 
@@ -14,6 +17,9 @@ import {AppComponent} from './components/app/app.component'
   imports: [
     NxModule.forRoot(),
     RootStoreModule,
+    AuthStoreModule.forRoot(),
+    UsersStoreModule.forRoot(),
+    EffectsModule.forRoot([]),
     RouterModule.forRoot([], {initialNavigation: 'enabled'}),
   ],
   providers: [
