@@ -8,6 +8,8 @@ import { AuthFacade } from './+state/auth.facade';
 import {IAuthStoreOptions} from './interfaces/auth-store-options.interface'
 import {IAuthStorage} from './interfaces/auth-storage.interface'
 import {BaseAuthStorage} from './services/base-auth-storage.service'
+import {IAuthApollo} from './interfaces/auth-apollo.interface'
+import {BaseAuthApollo} from './services/base-auth-apollo.service'
 
 @NgModule({
   imports: [
@@ -25,6 +27,10 @@ export class AuthStoreModule {
         {
           provide: IAuthStorage,
           useClass: options.storage || BaseAuthStorage
+        },
+        {
+          provide: IAuthApollo,
+          useClass: options.apollo || BaseAuthApollo
         }
       ]
     }
