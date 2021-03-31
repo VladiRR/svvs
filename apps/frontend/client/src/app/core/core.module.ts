@@ -12,15 +12,19 @@ import {UsersStoreModule} from '@svvs/frontend/shared/data-access/users-store'
 import {createApollo} from './utils/create-apollo'
 import {AppComponent} from './components/app/app.component'
 
+import {HomeModule} from '@svvs/frontend/client/feature/home'
+import {coreContainers, coreRoutes} from './core.common'
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [...coreContainers],
   imports: [
     NxModule.forRoot(),
     RootStoreModule,
-    AuthStoreModule.forRoot(),
-    UsersStoreModule.forRoot(),
-    EffectsModule.forRoot([]),
-    RouterModule.forRoot([], {initialNavigation: 'enabled'}),
+    // HomeModule,
+    RouterModule.forRoot(coreRoutes, {
+      initialNavigation: 'enabled',
+      scrollPositionRestoration: 'enabled'
+    }),
   ],
   providers: [
     {

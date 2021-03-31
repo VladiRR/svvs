@@ -44,6 +44,15 @@
     },
     "frontend-shared-data-access-auth-store": {
       "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
+    },
+    "frontend-client-feature-home": {
+      "tags": ["type:lib", "scope:frontend-client", "lib-type:feature"]
+    },
+    "frontend-client-feature-auth": {
+      "tags": ["type:lib", "scope:frontend-client", "lib-type:feature"]
+    },
+    "frontend-client-feature-user-profile": {
+      "tags": ["type:lib", "scope:frontend-client", "lib-type:feature"]
     }
   }
 }
