@@ -38,6 +38,9 @@
       ],
       "@svvs/frontend/client/feature/user-profile": [
         "libs/frontend/client/feature/user-profile/src/index.ts"
+      ],
+      "@svvs/frontend/ui/components": [
+        "libs/frontend/ui/components/src/index.ts"
       ]
     }
   },
