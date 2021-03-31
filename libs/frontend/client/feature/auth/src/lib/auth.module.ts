@@ -1,10 +1,12 @@
 import {NgModule} from '@angular/core'
-import {authContainers} from './auth.common'
+import {authContainers, authRoutes} from './auth.common'
 import {AuthStoreModule} from '@svvs/frontend/shared/data-access/auth-store'
+import {RouterModule} from '@angular/router'
 
 @NgModule({
   imports: [
     AuthStoreModule.forRoot(),
+    RouterModule.forChild(authRoutes),
   ],
   exports: [...authContainers],
   declarations: [...authContainers],
