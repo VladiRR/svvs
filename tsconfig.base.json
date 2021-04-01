@@ -29,6 +29,18 @@
       "@svvs/shared/utils/storage": ["libs/shared/utils/storage/src/index.ts"],
       "@svvs/frontend/shared/data-access/auth-store": [
         "libs/frontend/shared/data-access/auth-store/src/index.ts"
+      ],
+      "@svvs/frontend/client/feature/home": [
+        "libs/frontend/client/feature/home/src/index.ts"
+      ],
+      "@svvs/frontend/client/feature/auth": [
+        "libs/frontend/client/feature/auth/src/index.ts"
+      ],
+      "@svvs/frontend/client/feature/user-profile": [
+        "libs/frontend/client/feature/user-profile/src/index.ts"
+      ],
+      "@svvs/frontend/ui/components": [
+        "libs/frontend/ui/components/src/index.ts"
       ]
     }
   },

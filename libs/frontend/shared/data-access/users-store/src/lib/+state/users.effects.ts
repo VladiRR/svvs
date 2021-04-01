@@ -20,8 +20,8 @@ export class UsersEffects extends AbstractEffects<IUsersState> {
     this.dataPersistence.fetch<IActionEffectPayload<IActionForcePayload>>(UserActions.loadUser, {
       run: (action, store) =>
         isPlatformBrowser(this.platformId) && (!this.getState(store).userLoadRun || action.payload.force)
-          ? UserActions.loadUserRun
-          : UserActions.loadUserCancel,
+          ? UserActions.loadUserRun()
+          : UserActions.loadUserCancel(),
       onError: (action, error) => this.errorHandler(action, error),
     }),
   )
