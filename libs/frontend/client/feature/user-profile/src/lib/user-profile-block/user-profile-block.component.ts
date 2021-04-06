@@ -3,11 +3,11 @@ import {IUsersFacade} from '@svvs/frontend/shared/data-access/users-store'
 
 @Component({
   selector: 'svvs-user-profile-ui',
-  templateUrl: './user-profile-ui.component.html',
-  styleUrls: ['./user-profile-ui.component.scss'],
+  templateUrl: './user-profile-block.component.html',
+  styleUrls: ['./user-profile-block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserProfileUiComponent implements OnInit{
+export class UserProfileBlockComponent implements OnInit{
   constructor(private userFacade: IUsersFacade) {
   }
 

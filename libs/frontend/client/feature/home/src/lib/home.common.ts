@@ -1,5 +1,5 @@
 import {Routes} from '@angular/router'
-import {HomePageUiComponent} from './home-page-ui/home-page-ui.component'
+import {HomePageBlockComponent} from './home-page-block/home-page-block.component'
 import {BaseLayoutUiComponent} from '@svvs/frontend/ui/components'
 
 
@@ -10,7 +10,7 @@ export const homeRoutes: Routes = [
     children: [
       {
         path: '',
-        component: HomePageUiComponent
+        component: HomePageBlockComponent
       },
       {
         path: 'auth',
@@ -24,4 +24,5 @@ export const homeRoutes: Routes = [
   }
 ]
 
-export const homeContainers: any[] = [HomePageUiComponent]
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const homeContainers: any[] = [HomePageBlockComponent]

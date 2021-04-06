@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserProfileUiComponent } from './user-profile-ui.component';
+import { HomePageBlockComponent } from './home-page-block.component';
 
-describe('UserProfileUiComponent', () => {
-  let component: UserProfileUiComponent;
-  let fixture: ComponentFixture<UserProfileUiComponent>;
+describe('HomePageUiComponent', () => {
+  let component: HomePageBlockComponent;
+  let fixture: ComponentFixture<HomePageBlockComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserProfileUiComponent ]
+      declarations: [ HomePageBlockComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserProfileUiComponent);
+    fixture = TestBed.createComponent(HomePageBlockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

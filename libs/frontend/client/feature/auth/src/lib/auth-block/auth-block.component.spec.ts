@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthUiComponent } from './auth-ui.component';
+import { AuthBlockComponent } from './auth-block.component';
 
 describe('AuthUiComponent', () => {
-  let component: AuthUiComponent;
-  let fixture: ComponentFixture<AuthUiComponent>;
+  let component: AuthBlockComponent;
+  let fixture: ComponentFixture<AuthBlockComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthUiComponent ]
+      declarations: [ AuthBlockComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthUiComponent);
+    fixture = TestBed.createComponent(AuthBlockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
