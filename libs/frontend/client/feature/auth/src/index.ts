@@ -1,2 +1,2 @@
 export * from './lib/auth.module';
-export * from './lib/auth-ui/auth-ui.component'
+export * from './lib/auth-block/auth-block.component'

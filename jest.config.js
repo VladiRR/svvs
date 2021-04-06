@@ -13,5 +13,6 @@ module.exports = {
     '<rootDir>/libs/frontend/client/feature/auth',
     '<rootDir>/libs/frontend/client/feature/user-profile',
     '<rootDir>/libs/frontend/ui/components',
+    '<rootDir>/libs/frontend/client/ui/user-profile',
   ],
 };

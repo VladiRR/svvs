@@ -1,2 +1,2 @@
 export * from './lib/user-profile.module'
-export * from './lib/user-profile-ui/user-profile-ui.component'
+export * from './lib/user-profile-block/user-profile-block.component'

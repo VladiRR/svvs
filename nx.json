@@ -54,7 +54,10 @@
     "frontend-client-feature-user-profile": {
       "tags": ["type:lib", "scope:frontend-client", "lib-type:feature"]
     },
-    "frontend-ui-components": {
+    "frontend-client-ui-layout": {
+      "tags": ["type:lib", "scope:frontend-client", "lib-type:ui"]
+    },
+    "frontend-client-ui-user-profile": {
       "tags": ["type:lib", "scope:frontend-client", "lib-type:ui"]
     }
   }
