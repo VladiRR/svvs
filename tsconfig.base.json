@@ -41,6 +41,9 @@
       ],
       "@svvs/frontend/client/ui/layout": [
         "libs/frontend/client/ui/layout/src/index.ts"
+      ],
+      "@svvs/frontend/client/ui/user-profile": [
+        "libs/frontend/client/ui/user-profile/src/index.ts"
       ]
     }
   },

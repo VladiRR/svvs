@@ -653,6 +653,31 @@
           }
         }
       }
+    },
+    "frontend-client-ui-user-profile": {
+      "projectType": "library",
+      "root": "libs/frontend/client/ui/user-profile",
+      "sourceRoot": "libs/frontend/client/ui/user-profile/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/client/ui/user-profile/src/**/*.ts",
+              "libs/frontend/client/ui/user-profile/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend/client/ui/user-profile"],
+          "options": {
+            "jestConfig": "libs/frontend/client/ui/user-profile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
