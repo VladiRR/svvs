@@ -629,26 +629,26 @@
         }
       }
     },
-    "frontend-ui-components": {
+    "frontend-client-ui-layout": {
       "projectType": "library",
-      "root": "libs/frontend/ui/components",
-      "sourceRoot": "libs/frontend/ui/components/src",
+      "root": "libs/frontend/client/ui/layout",
+      "sourceRoot": "libs/frontend/client/ui/layout/src",
       "prefix": "svvs",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/frontend/ui/components/src/**/*.ts",
-              "libs/frontend/ui/components/src/**/*.html"
+              "libs/frontend/client/ui/layout/src/**/*.ts",
+              "libs/frontend/client/ui/layout/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/frontend/ui/components"],
+          "outputs": ["coverage/libs/frontend/client/ui/layout"],
           "options": {
-            "jestConfig": "libs/frontend/ui/components/jest.config.js",
+            "jestConfig": "libs/frontend/client/ui/layout/jest.config.js",
             "passWithNoTests": true
           }
         }

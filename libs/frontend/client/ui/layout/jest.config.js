@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'frontend-ui-components',
-  preset: '../../../../jest.preset.js',
+  displayName: 'frontend-client-ui-layout',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../../coverage/libs/frontend/ui/components',
+  coverageDirectory: '../../../../../coverage/libs/frontend/client/ui/layout',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
