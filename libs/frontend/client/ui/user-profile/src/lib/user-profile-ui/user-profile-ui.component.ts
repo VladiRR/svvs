@@ -1,4 +1,6 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core'
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core'
+import {IUser} from '@svvs/shared/utils/interfaces'
+import {ApolloError} from '@apollo/client/core'
 
 @Component({
   selector: 'svvs-user-profile-ui',
@@ -8,4 +10,9 @@ import {ChangeDetectionStrategy, Component} from '@angular/core'
 })
 export class UserProfileUiComponent {
 
+  @Input()
+  user: IUser
+
+  @Input()
+  failure: ApolloError
 }

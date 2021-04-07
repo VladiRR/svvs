@@ -1,1 +1,18 @@
-<svvs-user-profile-ui></svvs-user-profile-ui>
+<ng-container
+  *ngTemplateOutlet="
+    userInfo,
+    context: {
+      user$: userFacade.user$ | async,
+      failure$: userFacade.userLoadFailure$ | async
+    }"
+>
+</ng-container>
+
+<ng-template #userInfo let-user="user$" let-failure="failure$">
+  <svvs-user-profile-ui
+    [user]="user"
+    [failure]="failure"
+  ></svvs-user-profile-ui>
+</ng-template>
+
+
