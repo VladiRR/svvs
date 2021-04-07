@@ -7,4 +7,8 @@ import {ChangeDetectionStrategy, Component} from '@angular/core'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthBlockComponent {
+
+  onLogin(loginPayload: {login: string, password: string}): void {
+    console.log('login in login block', loginPayload)
+  }
 }

@@ -59,6 +59,9 @@
     },
     "frontend-client-ui-user-profile": {
       "tags": ["type:lib", "scope:frontend-client", "lib-type:ui"]
+    },
+    "frontend-client-ui-login-form": {
+      "tags": ["type:lib", "scope:frontend-client", "lib-type:ui"]
     }
   }
 }

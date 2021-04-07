@@ -1,1 +1,11 @@
+<ng-container *ngIf="failure">
+  <p *ngIf="failure.message === 'Unauthorized'">Авторизуйтесь пожалуйста</p>
+</ng-container>
+
+
+<ng-container *ngIf="user">
+  <p>Пользователь {{user.username}} найден</p>
+</ng-container>
+
+
 <p>user-profile-ui work!</p>
