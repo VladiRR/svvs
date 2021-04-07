@@ -678,6 +678,31 @@
           }
         }
       }
+    },
+    "frontend-client-ui-login-form": {
+      "projectType": "library",
+      "root": "libs/frontend/client/ui/login-form",
+      "sourceRoot": "libs/frontend/client/ui/login-form/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/client/ui/login-form/src/**/*.ts",
+              "libs/frontend/client/ui/login-form/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend/client/ui/login-form"],
+          "options": {
+            "jestConfig": "libs/frontend/client/ui/login-form/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
