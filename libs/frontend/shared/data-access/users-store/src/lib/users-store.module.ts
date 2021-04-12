@@ -8,7 +8,7 @@ import {UsersEffects} from './+state/users.effects'
 import {IUsersStoreOptions} from './interfaces/users-store-options.interface'
 import {IUsersApollo} from './interfaces/users-apollo.interface'
 import {IUsersFacade} from './interfaces/users-facade.interface'
-import {BaseUsersFacade} from './+state/base-users-facade.service'
+import {BaseUsersFacade} from './services/base-users-facade.service'
 import {BaseUsersApollo} from './services/base-user-apollo.service'
 
 @NgModule({

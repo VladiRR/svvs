@@ -3,7 +3,7 @@ import {ISignAuthPayload} from '@svvs/shared/utils/interfaces'
 import {ApolloError} from '@apollo/client'
 
 /**
- * User facade interface
+ * Auth facade interface
  */
 export abstract class IAuthFacade {
   /**
