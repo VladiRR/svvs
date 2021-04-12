@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core'
+import {ISignAuthPayload} from '@svvs/shared/utils/interfaces'
 
 @Component({
   selector: 'svvs-auth-ui',
@@ -8,7 +9,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core'
 })
 export class AuthBlockComponent {
 
-  onLogin(loginPayload: {login: string, password: string}): void {
+  onLogin(loginPayload: ISignAuthPayload): void {
     console.log('login in login block', loginPayload)
   }
 }
