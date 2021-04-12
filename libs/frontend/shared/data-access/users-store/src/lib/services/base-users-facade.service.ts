@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core'
 
 import {select, Store} from '@ngrx/store'
 
-import * as UserActions from './users.actions'
-import * as UserSelectors from './users.selectors'
+import * as UserActions from '../+state/users.actions'
+import * as UserSelectors from '../+state/users.selectors'
 import {IUsersFacade} from '../interfaces/users-facade.interface'
 import {IUsersStoreFeatureKey} from '../interfaces/users-store-feature-key.interface'
 
