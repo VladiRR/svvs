@@ -1,19 +1,10 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "**/*"
-  ],
-  "plugins": [
-    "@nrwl/nx"
-  ],
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nrwl/nx"],
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "*.tsx",
-        "*.js",
-        "*.jsx"
-      ],
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
@@ -39,10 +30,7 @@
               },
               {
                 "sourceTag": "scope:fronend-admin",
-                "onlyDependOnLibsWithTags": [
-                  "scope:fronend-admin",
-                  "type:lib"
-                ]
+                "onlyDependOnLibsWithTags": ["scope:fronend-admin", "type:lib"]
               },
               {
                 "sourceTag": "lib-type:feature",
@@ -55,10 +43,7 @@
               },
               {
                 "sourceTag": "lib-type:ui",
-                "onlyDependOnLibsWithTags": [
-                  "lib-type:ui",
-                  "lib-type:utils"
-                ]
+                "onlyDependOnLibsWithTags": ["lib-type:ui", "lib-type:utils"]
               },
               {
                 "sourceTag": "lib-type:data-access",
@@ -69,9 +54,7 @@
               },
               {
                 "sourceTag": "lib-type:utils",
-                "onlyDependOnLibsWithTags": [
-                  "lib-type:utils"
-                ]
+                "onlyDependOnLibsWithTags": ["lib-type:utils"]
               }
             ]
           }
@@ -79,26 +62,13 @@
       }
     },
     {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
-      "extends": [
-        "plugin:@nrwl/nx/typescript"
-      ],
-      "parserOptions": {
-        "project": "./tsconfig.*?.json"
-      },
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
       "rules": {}
     },
     {
-      "files": [
-        "*.js",
-        "*.jsx"
-      ],
-      "extends": [
-        "plugin:@nrwl/nx/javascript"
-      ],
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {
         "no-undef": "off"
       }

@@ -37,309 +37,6 @@
   },
   "defaultProject": "frontend-client",
   "projects": {
-    "frontend-client": {
-      "projectType": "application",
-      "root": "apps/frontend/client",
-      "sourceRoot": "apps/frontend/client/src",
-      "prefix": "svvs",
-      "architect": {
-        "compodoc": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "mkdir docs-temp && cp README.md ./docs-temp && cp ./apps/frontend/client/docs/README.md ./ && npx compodoc -p apps/frontend/client/tsconfig.compodoc.json --theme vagrant -r 8085 -d docs/client/ && rm README.md && cp ./docs-temp/README.md ./ && rm ./docs-temp/README.md && rmdir ./docs-temp/"
-              }
-            ]
-          }
-        },
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/frontend-client/browser",
-            "index": "apps/frontend/client/src/index.html",
-            "main": "apps/frontend/client/src/main.browser.ts",
-            "polyfills": "apps/frontend/client/src/polyfills.ts",
-            "tsConfig": "apps/frontend/client/tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "apps/frontend/client/src/favicon.ico",
-              "apps/frontend/client/src/assets"
-            ],
-            "styles": ["apps/frontend/client/src/styles/styles.scss"],
-            "stylePreprocessorOptions": {
-              "includePaths": ["apps/frontend/client/src/styles"]
-            },
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/frontend/client/src/environments/environment.ts",
-                  "with": "apps/frontend/client/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "frontend-client:build",
-            "port": 4200,
-            "proxyConfig": "apps/frontend/client/proxy.conf.json"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "frontend-client:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "frontend-client:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/frontend/client/src/**/*.ts",
-              "apps/frontend/client/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/frontend/client"],
-          "options": {
-            "jestConfig": "apps/frontend/client/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/frontend-client/server",
-            "main": "apps/frontend/client/server.ts",
-            "tsConfig": "apps/frontend/client/tsconfig.server.json"
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media",
-              "fileReplacements": [
-                {
-                  "replace": "apps/frontend/client/src/environments/environment.ts",
-                  "with": "apps/frontend/client/src/environments/environment.prod.ts"
-                }
-              ],
-              "sourceMap": false,
-              "optimization": true
-            }
-          }
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "options": {
-            "browserTarget": "frontend-client:build",
-            "serverTarget": "frontend-client:server"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "frontend-client:build:production",
-              "serverTarget": "frontend-client:server:production"
-            }
-          }
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "browserTarget": "frontend-client:build:production",
-            "serverTarget": "frontend-client:server:production",
-            "routes": ["/"]
-          },
-          "configurations": {
-            "production": {}
-          }
-        }
-      }
-    },
-    "frontend/client-e2e": {
-      "root": "apps/frontend/client-e2e",
-      "sourceRoot": "apps/frontend/client-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/frontend/client-e2e/cypress.json",
-            "tsConfig": "apps/frontend/client-e2e/tsconfig.e2e.json",
-            "devServerTarget": "frontend-client:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "frontend-client:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/frontend/client-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "frontend-admin": {
-      "projectType": "application",
-      "root": "apps/frontend/admin",
-      "sourceRoot": "apps/frontend/admin/src",
-      "prefix": "svvs",
-      "architect": {
-        "compodoc": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "mkdir docs-temp && cp README.md ./docs-temp && cp ./apps/frontend/admin/docs/README.md ./ && npx compodoc -p apps/frontend/admin/tsconfig.compodoc.json --theme vagrant -r 8085 -d docs/admin/ && rm README.md && cp ./docs-temp/README.md ./ && rm ./docs-temp/README.md && rmdir ./docs-temp/"
-              }
-            ]
-          }
-        },
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/frontend/admin",
-            "index": "apps/frontend/admin/src/index.html",
-            "main": "apps/frontend/admin/src/main.browser.ts",
-            "polyfills": "apps/frontend/admin/src/polyfills.ts",
-            "tsConfig": "apps/frontend/admin/tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "apps/frontend/admin/src/favicon.ico",
-              "apps/frontend/admin/src/assets"
-            ],
-            "styles": ["apps/frontend/admin/src/styles/styles.scss"],
-            "stylePreprocessorOptions": {
-              "includePaths": ["apps/frontend/admin/src/styles"]
-            },
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/frontend/admin/src/environments/environment.ts",
-                  "with": "apps/frontend/admin/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "frontend-admin:build",
-            "port": 4201,
-            "proxyConfig": "apps/frontend/admin/proxy.conf.json"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "frontend-admin:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "frontend-admin:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/frontend/admin/src/**/*.ts",
-              "apps/frontend/admin/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/frontend/admin"],
-          "options": {
-            "jestConfig": "apps/frontend/admin/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "frontend/admin-e2e": {
-      "root": "apps/frontend/admin-e2e",
-      "sourceRoot": "apps/frontend/admin-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/frontend/admin-e2e/cypress.json",
-            "tsConfig": "apps/frontend/admin-e2e/tsconfig.e2e.json",
-            "devServerTarget": "frontend-admin:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "frontend-admin:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/frontend/admin-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
     "backend-api": {
       "root": "apps/backend/api",
       "sourceRoot": "apps/backend/api/src",
@@ -389,13 +86,464 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/backend/api/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/backend/api"],
           "options": {
             "jestConfig": "apps/backend/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "frontend-admin": {
+      "projectType": "application",
+      "root": "apps/frontend/admin",
+      "sourceRoot": "apps/frontend/admin/src",
+      "prefix": "svvs",
+      "architect": {
+        "compodoc": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "mkdir docs-temp && cp README.md ./docs-temp && cp ./apps/frontend/admin/docs/README.md ./ && npx compodoc -p apps/frontend/admin/tsconfig.compodoc.json --theme vagrant -r 8085 -d docs/admin/ && rm README.md && cp ./docs-temp/README.md ./ && rm ./docs-temp/README.md && rmdir ./docs-temp/"
+              }
+            ]
+          }
+        },
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/frontend/admin",
+            "index": "apps/frontend/admin/src/index.html",
+            "main": "apps/frontend/admin/src/main.browser.ts",
+            "polyfills": "apps/frontend/admin/src/polyfills.ts",
+            "tsConfig": "apps/frontend/admin/tsconfig.app.json",
+            "assets": [
+              "apps/frontend/admin/src/favicon.ico",
+              "apps/frontend/admin/src/assets"
+            ],
+            "styles": ["apps/frontend/admin/src/styles/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["apps/frontend/admin/src/styles"]
+            },
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/frontend/admin/src/environments/environment.ts",
+                  "with": "apps/frontend/admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": ""
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "frontend-admin:build",
+            "port": 4201,
+            "proxyConfig": "apps/frontend/admin/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "frontend-admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "frontend-admin:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/frontend/admin/src/**/*.ts",
+              "apps/frontend/admin/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/frontend/admin"],
+          "options": {
+            "jestConfig": "apps/frontend/admin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "frontend-client": {
+      "projectType": "application",
+      "root": "apps/frontend/client",
+      "sourceRoot": "apps/frontend/client/src",
+      "prefix": "svvs",
+      "architect": {
+        "compodoc": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "mkdir docs-temp && cp README.md ./docs-temp && cp ./apps/frontend/client/docs/README.md ./ && npx compodoc -p apps/frontend/client/tsconfig.compodoc.json --theme vagrant -r 8085 -d docs/client/ && rm README.md && cp ./docs-temp/README.md ./ && rm ./docs-temp/README.md && rmdir ./docs-temp/"
+              }
+            ]
+          }
+        },
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/frontend-client/browser",
+            "index": "apps/frontend/client/src/index.html",
+            "main": "apps/frontend/client/src/main.browser.ts",
+            "polyfills": "apps/frontend/client/src/polyfills.ts",
+            "tsConfig": "apps/frontend/client/tsconfig.app.json",
+            "assets": [
+              "apps/frontend/client/src/favicon.ico",
+              "apps/frontend/client/src/assets"
+            ],
+            "styles": ["apps/frontend/client/src/styles/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["apps/frontend/client/src/styles"]
+            },
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/frontend/client/src/environments/environment.ts",
+                  "with": "apps/frontend/client/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": ""
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "frontend-client:build",
+            "port": 4200,
+            "proxyConfig": "apps/frontend/client/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "frontend-client:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "frontend-client:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/frontend/client/src/**/*.ts",
+              "apps/frontend/client/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/frontend/client"],
+          "options": {
+            "jestConfig": "apps/frontend/client/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/frontend-client/server",
+            "main": "apps/frontend/client/server.ts",
+            "tsConfig": "apps/frontend/client/tsconfig.server.json",
+            "sourceMap": true,
+            "optimization": false
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/frontend/client/src/environments/environment.ts",
+                  "with": "apps/frontend/client/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          },
+          "defaultConfiguration": ""
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "frontend-client:build",
+            "serverTarget": "frontend-client:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "frontend-client:build:production",
+              "serverTarget": "frontend-client:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "frontend-client:build:production",
+            "serverTarget": "frontend-client:server:production",
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {}
+          }
+        }
+      }
+    },
+    "frontend-client-feature-auth": {
+      "projectType": "library",
+      "root": "libs/frontend/client/feature/auth",
+      "sourceRoot": "libs/frontend/client/feature/auth/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/client/feature/auth/src/**/*.ts",
+              "libs/frontend/client/feature/auth/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend/client/feature/auth"],
+          "options": {
+            "jestConfig": "libs/frontend/client/feature/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "frontend-client-feature-home": {
+      "projectType": "library",
+      "root": "libs/frontend/client/feature/home",
+      "sourceRoot": "libs/frontend/client/feature/home/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/client/feature/home/src/**/*.ts",
+              "libs/frontend/client/feature/home/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend/client/feature/home"],
+          "options": {
+            "jestConfig": "libs/frontend/client/feature/home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "frontend-client-feature-user-profile": {
+      "projectType": "library",
+      "root": "libs/frontend/client/feature/user-profile",
+      "sourceRoot": "libs/frontend/client/feature/user-profile/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/client/feature/user-profile/src/**/*.ts",
+              "libs/frontend/client/feature/user-profile/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend/client/feature/user-profile"],
+          "options": {
+            "jestConfig": "libs/frontend/client/feature/user-profile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "frontend-client-ui-layout": {
+      "projectType": "library",
+      "root": "libs/frontend/client/ui/layout",
+      "sourceRoot": "libs/frontend/client/ui/layout/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/client/ui/layout/src/**/*.ts",
+              "libs/frontend/client/ui/layout/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend/client/ui/layout"],
+          "options": {
+            "jestConfig": "libs/frontend/client/ui/layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "frontend-client-ui-login-form": {
+      "projectType": "library",
+      "root": "libs/frontend/client/ui/login-form",
+      "sourceRoot": "libs/frontend/client/ui/login-form/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/client/ui/login-form/src/**/*.ts",
+              "libs/frontend/client/ui/login-form/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend/client/ui/login-form"],
+          "options": {
+            "jestConfig": "libs/frontend/client/ui/login-form/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "frontend-client-ui-user-profile": {
+      "projectType": "library",
+      "root": "libs/frontend/client/ui/user-profile",
+      "sourceRoot": "libs/frontend/client/ui/user-profile/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/client/ui/user-profile/src/**/*.ts",
+              "libs/frontend/client/ui/user-profile/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend/client/ui/user-profile"],
+          "options": {
+            "jestConfig": "libs/frontend/client/ui/user-profile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "frontend-shared-data-access-auth-store": {
+      "projectType": "library",
+      "root": "libs/frontend/shared/data-access/auth-store",
+      "sourceRoot": "libs/frontend/shared/data-access/auth-store/src",
+      "prefix": "svvs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/shared/data-access/auth-store/src/**/*.ts",
+              "libs/frontend/shared/data-access/auth-store/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend/shared/data-access/auth-store"],
+          "options": {
+            "jestConfig": "libs/frontend/shared/data-access/auth-store/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -414,7 +562,8 @@
               "libs/frontend/shared/data-access/root-store/src/**/*.ts",
               "libs/frontend/shared/data-access/root-store/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -439,7 +588,8 @@
               "libs/frontend/shared/data-access/users-store/src/**/*.ts",
               "libs/frontend/shared/data-access/users-store/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -451,24 +601,57 @@
         }
       }
     },
-    "shared-utils-store": {
-      "root": "libs/shared/utils/store",
-      "sourceRoot": "libs/shared/utils/store/src",
-      "projectType": "library",
+    "frontend/admin-e2e": {
+      "root": "apps/frontend/admin-e2e",
+      "sourceRoot": "apps/frontend/admin-e2e/src",
+      "projectType": "application",
       "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/frontend/admin-e2e/cypress.json",
+            "tsConfig": "apps/frontend/admin-e2e/tsconfig.e2e.json",
+            "devServerTarget": "frontend-admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "frontend-admin:serve:production"
+            }
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/shared/utils/store/**/*.ts"]
+            "lintFilePatterns": ["apps/frontend/admin-e2e/**/*.{js,ts}"]
+          },
+          "outputs": ["{options.outputFile}"]
+        }
+      }
+    },
+    "frontend/client-e2e": {
+      "root": "apps/frontend/client-e2e",
+      "sourceRoot": "apps/frontend/client-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/frontend/client-e2e/cypress.json",
+            "tsConfig": "apps/frontend/client-e2e/tsconfig.e2e.json",
+            "devServerTarget": "frontend-client:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "frontend-client:serve:production"
+            }
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/utils/store"],
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "jestConfig": "libs/shared/utils/store/jest.config.js",
-            "passWithNoTests": true
-          }
+            "lintFilePatterns": ["apps/frontend/client-e2e/**/*.{js,ts}"]
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     },
@@ -481,7 +664,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/shared/utils/interfaces/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -517,7 +701,8 @@
               "libs/shared/utils/storage/src/**/*.ts",
               "libs/shared/utils/storage/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -529,176 +714,23 @@
         }
       }
     },
-    "frontend-shared-data-access-auth-store": {
+    "shared-utils-store": {
+      "root": "libs/shared/utils/store",
+      "sourceRoot": "libs/shared/utils/store/src",
       "projectType": "library",
-      "root": "libs/frontend/shared/data-access/auth-store",
-      "sourceRoot": "libs/frontend/shared/data-access/auth-store/src",
-      "prefix": "svvs",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/frontend/shared/data-access/auth-store/src/**/*.ts",
-              "libs/frontend/shared/data-access/auth-store/src/**/*.html"
-            ]
-          }
+            "lintFilePatterns": ["libs/shared/utils/store/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/frontend/shared/data-access/auth-store"],
+          "outputs": ["coverage/libs/shared/utils/store"],
           "options": {
-            "jestConfig": "libs/frontend/shared/data-access/auth-store/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "frontend-client-feature-home": {
-      "projectType": "library",
-      "root": "libs/frontend/client/feature/home",
-      "sourceRoot": "libs/frontend/client/feature/home/src",
-      "prefix": "svvs",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/frontend/client/feature/home/src/**/*.ts",
-              "libs/frontend/client/feature/home/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/frontend/client/feature/home"],
-          "options": {
-            "jestConfig": "libs/frontend/client/feature/home/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "frontend-client-feature-auth": {
-      "projectType": "library",
-      "root": "libs/frontend/client/feature/auth",
-      "sourceRoot": "libs/frontend/client/feature/auth/src",
-      "prefix": "svvs",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/frontend/client/feature/auth/src/**/*.ts",
-              "libs/frontend/client/feature/auth/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/frontend/client/feature/auth"],
-          "options": {
-            "jestConfig": "libs/frontend/client/feature/auth/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "frontend-client-feature-user-profile": {
-      "projectType": "library",
-      "root": "libs/frontend/client/feature/user-profile",
-      "sourceRoot": "libs/frontend/client/feature/user-profile/src",
-      "prefix": "svvs",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/frontend/client/feature/user-profile/src/**/*.ts",
-              "libs/frontend/client/feature/user-profile/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/frontend/client/feature/user-profile"],
-          "options": {
-            "jestConfig": "libs/frontend/client/feature/user-profile/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "frontend-client-ui-layout": {
-      "projectType": "library",
-      "root": "libs/frontend/client/ui/layout",
-      "sourceRoot": "libs/frontend/client/ui/layout/src",
-      "prefix": "svvs",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/frontend/client/ui/layout/src/**/*.ts",
-              "libs/frontend/client/ui/layout/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/frontend/client/ui/layout"],
-          "options": {
-            "jestConfig": "libs/frontend/client/ui/layout/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "frontend-client-ui-user-profile": {
-      "projectType": "library",
-      "root": "libs/frontend/client/ui/user-profile",
-      "sourceRoot": "libs/frontend/client/ui/user-profile/src",
-      "prefix": "svvs",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/frontend/client/ui/user-profile/src/**/*.ts",
-              "libs/frontend/client/ui/user-profile/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/frontend/client/ui/user-profile"],
-          "options": {
-            "jestConfig": "libs/frontend/client/ui/user-profile/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "frontend-client-ui-login-form": {
-      "projectType": "library",
-      "root": "libs/frontend/client/ui/login-form",
-      "sourceRoot": "libs/frontend/client/ui/login-form/src",
-      "prefix": "svvs",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/frontend/client/ui/login-form/src/**/*.ts",
-              "libs/frontend/client/ui/login-form/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/frontend/client/ui/login-form"],
-          "options": {
-            "jestConfig": "libs/frontend/client/ui/login-form/jest.config.js",
+            "jestConfig": "libs/shared/utils/store/jest.config.js",
             "passWithNoTests": true
           }
         }

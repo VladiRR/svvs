@@ -16,25 +16,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@svvs/frontend/shared/data-access/root-store": [
-        "libs/frontend/shared/data-access/root-store/src/index.ts"
-      ],
-      "@svvs/frontend/shared/data-access/users-store": [
-        "libs/frontend/shared/data-access/users-store/src/index.ts"
-      ],
-      "@svvs/shared/utils/store": ["libs/shared/utils/store/src/index.ts"],
-      "@svvs/shared/utils/interfaces": [
-        "libs/shared/utils/interfaces/src/index.ts"
-      ],
-      "@svvs/shared/utils/storage": ["libs/shared/utils/storage/src/index.ts"],
-      "@svvs/frontend/shared/data-access/auth-store": [
-        "libs/frontend/shared/data-access/auth-store/src/index.ts"
+      "@svvs/frontend/client/feature/auth": [
+        "libs/frontend/client/feature/auth/src/index.ts"
       ],
       "@svvs/frontend/client/feature/home": [
         "libs/frontend/client/feature/home/src/index.ts"
-      ],
-      "@svvs/frontend/client/feature/auth": [
-        "libs/frontend/client/feature/auth/src/index.ts"
       ],
       "@svvs/frontend/client/feature/user-profile": [
         "libs/frontend/client/feature/user-profile/src/index.ts"
@@ -42,12 +28,26 @@
       "@svvs/frontend/client/ui/layout": [
         "libs/frontend/client/ui/layout/src/index.ts"
       ],
+      "@svvs/frontend/client/ui/login-form": [
+        "libs/frontend/client/ui/login-form/src/index.ts"
+      ],
       "@svvs/frontend/client/ui/user-profile": [
         "libs/frontend/client/ui/user-profile/src/index.ts"
       ],
-      "@svvs/frontend/client/ui/login-form": [
-        "libs/frontend/client/ui/login-form/src/index.ts"
-      ]
+      "@svvs/frontend/shared/data-access/auth-store": [
+        "libs/frontend/shared/data-access/auth-store/src/index.ts"
+      ],
+      "@svvs/frontend/shared/data-access/root-store": [
+        "libs/frontend/shared/data-access/root-store/src/index.ts"
+      ],
+      "@svvs/frontend/shared/data-access/users-store": [
+        "libs/frontend/shared/data-access/users-store/src/index.ts"
+      ],
+      "@svvs/shared/utils/interfaces": [
+        "libs/shared/utils/interfaces/src/index.ts"
+      ],
+      "@svvs/shared/utils/storage": ["libs/shared/utils/storage/src/index.ts"],
+      "@svvs/shared/utils/store": ["libs/shared/utils/store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

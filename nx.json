@@ -1,9 +1,14 @@
 {
   "npmScope": "svvs",
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -12,43 +17,25 @@
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
   "projects": {
-    "frontend-client": { "tags": ["scope:frontend-client", "type:app"] },
-    "frontend/client-e2e": {
-      "tags": [],
-      "implicitDependencies": ["frontend-client"]
+    "backend-api": {
+      "tags": ["type:app", "scope:backend-api"]
     },
-    "frontend-admin": { "tags": ["scope:frontend-admin", "type:app"] },
-    "frontend/admin-e2e": {
-      "tags": [],
-      "implicitDependencies": ["frontend-admin"]
+    "frontend-admin": {
+      "tags": ["scope:frontend-admin", "type:app"]
     },
-    "backend-api": { "tags": ["type:app", "scope:backend-api"] },
-    "frontend-shared-data-access-root-store": {
-      "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
-    },
-    "frontend-shared-data-access-users-store": {
-      "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
-    },
-    "shared-utils-store": {
-      "tags": ["type:lib", "scope:shared", "lib-type:utils"]
-    },
-    "shared-utils-interfaces": {
-      "tags": ["type:lib", "scope:shared", "lib-type:utils"]
-    },
-    "shared-utils-storage": {
-      "tags": ["type:lib", "scope:shared", "lib-type:utils"]
-    },
-    "frontend-shared-data-access-auth-store": {
-      "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
-    },
-    "frontend-client-feature-home": {
-      "tags": ["type:lib", "scope:frontend-client", "lib-type:feature"]
+    "frontend-client": {
+      "tags": ["scope:frontend-client", "type:app"]
     },
     "frontend-client-feature-auth": {
+      "tags": ["type:lib", "scope:frontend-client", "lib-type:feature"]
+    },
+    "frontend-client-feature-home": {
       "tags": ["type:lib", "scope:frontend-client", "lib-type:feature"]
     },
     "frontend-client-feature-user-profile": {
@@ -57,11 +44,45 @@
     "frontend-client-ui-layout": {
       "tags": ["type:lib", "scope:frontend-client", "lib-type:ui"]
     },
+    "frontend-client-ui-login-form": {
+      "tags": ["type:lib", "scope:frontend-client", "lib-type:ui"]
+    },
     "frontend-client-ui-user-profile": {
       "tags": ["type:lib", "scope:frontend-client", "lib-type:ui"]
     },
-    "frontend-client-ui-login-form": {
-      "tags": ["type:lib", "scope:frontend-client", "lib-type:ui"]
+    "frontend-shared-data-access-auth-store": {
+      "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
+    },
+    "frontend-shared-data-access-root-store": {
+      "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
+    },
+    "frontend-shared-data-access-users-store": {
+      "tags": ["type:lib", "scope:shared", "lib-type:data-access"]
+    },
+    "frontend/admin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["frontend-admin"]
+    },
+    "frontend/client-e2e": {
+      "tags": [],
+      "implicitDependencies": ["frontend-client"]
+    },
+    "shared-utils-interfaces": {
+      "tags": ["type:lib", "scope:shared", "lib-type:utils"]
+    },
+    "shared-utils-storage": {
+      "tags": ["type:lib", "scope:shared", "lib-type:utils"]
+    },
+    "shared-utils-store": {
+      "tags": ["type:lib", "scope:shared", "lib-type:utils"]
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
